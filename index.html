@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título optimizado para SEO -->
+    <title>Kodo Labs - Desarrollo de Software | Soluciones Digitales para PyMEs en Argentina</title>
+    
+    <!-- Meta tags mejorados para SEO -->
+    <meta name="description" content="Kodo Labs desarrolla software, aplicaciones web y móviles para PyMEs. Especialistas en React, Node.js, sistemas de gestión y e-commerce. Precios competitivos en Argentina.">
+    <meta name="keywords" content="desarrollo software, aplicaciones web, desarrollo móvil, sistemas gestión, e-commerce, PyMEs, Argentina, React, Node.js, La Plata">
+    <meta name="author" content="Kodo Labs">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Spanish">
+    <meta name="geo.region" content="AR-B">
+    <meta name="geo.placename" content="La Plata, Buenos Aires">
+    <meta name="geo.position" content="-34.9214;-57.9544">
+    <meta name="ICBM" content="-34.9214, -57.9544">
+    
+    <!-- Open Graph mejorado -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Kodo Labs">
+    <meta property="og:url" content="https://kodo-labs.com/">
+    <meta property="og:title" content="Kodo Labs - Desarrollo de Software para PyMEs">
+    <meta property="og:description" content="Soluciones digitales profesionales para PyMEs. Desarrollamos software, aplicaciones web y móviles con tecnologías modernas y precios competitivos.">
+    <meta property="og:image" content="https://kodo-labs.com/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="es_AR">
+    
+    <!-- Twitter Card mejorado -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@kodolabs">
+    <meta name="twitter:creator" content="@kodolabs">
+    <meta name="twitter:url" content="https://kodo-labs.com/">
+    <meta name="twitter:title" content="Kodo Labs - Desarrollo de Software para PyMEs">
+    <meta name="twitter:description" content="Soluciones digitales profesionales para PyMEs. Desarrollamos software, aplicaciones web y móviles.">
+    <meta name="twitter:image" content="https://kodo-labs.com/images/twitter-card.jpg">
+    
+    <!-- Preconnects para performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Preload de recursos críticos -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" as="style">
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="preload" href="js/scripts.js" as="script">
+    
+    <!-- Favicon optimizado -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- Fonts optimizados -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+    
+    <!-- Schema.org JSON-LD para SEO - ACTUALIZADO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Kodo Labs",
+        "url": "https://kodo-labs.com",
+        "logo": "https://kodo-labs.com/images/logo.png",
+        "description": "Desarrollo de software, aplicaciones web y móviles para PyMEs",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "",
+            "addressLocality": "Posadas",
+            "addressRegion": "Misiones",
+            "addressCountry": "Argentina"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "info@kodo-labs.com",
+            "contactType": "Customer Service",
+            "availableLanguage": ["Spanish"]
+        },
+        "sameAs": [
+            "https://www.linkedin.com/in/kodo-labs-7b4765382/",
+            "https://github.com/kodolabs",
+            "https://instagram.com/kodo.labs"
+        ],
+        "service": [
+            {
+                "@type": "Service",
+                "name": "Desarrollo Web",
+                "description": "Sitios web profesionales con React y Next.js"
+            },
+            {
+                "@type": "Service", 
+                "name": "Aplicaciones Móviles",
+                "description": "Apps nativas y multiplataforma para iOS y Android"
+            },
+            {
+                "@type": "Service",
+                "name": "Sistemas de Gestión", 
+                "description": "Sistemas personalizados CRM y ERP"
+            },
+            {
+                "@type": "Service",
+                "name": "E-commerce",
+                "description": "Tiendas online completas con pasarelas de pago"
+            }
+        ]
+    }
+    </script>
+    
+    <!-- PWA Configuration -->
+    <meta name="theme-color" content="#00c851">
+    <meta name="msapplication-TileColor" content="#00c851">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Kodo Labs">
+    
+    <!-- Performance hints -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//api.whatsapp.com">
+</head>
+<body>
+    <!-- Skip to main content para accesibilidad -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    
+    <!-- Header mejorado -->
+    <header role="banner">
+        <nav class="container" role="navigation" aria-label="Navegación principal">
+            <a href="#inicio" class="logo" aria-label="Kodo Labs - Inicio">
+                <img src="images/kodo-labs-logo.png" alt="Kodo Labs" class="logo-image">
+            </a>
+            <ul class="nav-links" role="menubar">
+                <li role="none"><a href="#inicio" role="menuitem">Inicio</a></li>
+                <li role="none"><a href="#servicios" role="menuitem">Servicios</a></li>
+                <li role="none"><a href="#portfolio" role="menuitem">Portfolio</a></li>
+                <li role="none"><a href="#nosotros" role="menuitem">Nosotros</a></li>
+                <li role="none"><a href="#contacto" role="menuitem">Contacto</a></li>
+            </ul>
+            <a href="#contacto" class="cta-button" aria-describedby="cta-description">
+                Consulta Gratuita
+            </a>
+            <div id="cta-description" class="sr-only">Obtén una consulta gratuita para tu proyecto</div>
+            
+            <button class="mobile-menu" id="mobile-menu" 
+                    aria-label="Abrir menú de navegación" 
+                    aria-expanded="false"
+                    aria-controls="nav-links">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main content -->
+    <main id="main-content">
+        <!-- Hero Section mejorado -->
+        <section id="inicio" class="hero" aria-labelledby="hero-title">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 id="hero-title" data-typing="true" data-typing-speed="60">
+                        Digitalizamos tu Negocio
+                    </h1>
+                    <p class="hero-subtitle">
+                        Somos <strong>Kodo Labs</strong>, especialistas en desarrollo de software para PyMEs. 
+                        Creamos soluciones digitales que impulsan tu crecimiento con precios competitivos y calidad profesional.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#contacto" class="btn-primary" aria-describedby="btn-primary-desc">
+                            <i class="fas fa-rocket" aria-hidden="true"></i>
+                            Comenzar Proyecto
+                        </a>
+                        <div id="btn-primary-desc" class="sr-only">Inicia tu proyecto de digitalización</div>
+                        
+                        <a href="#portfolio" class="btn-secondary" aria-describedby="btn-secondary-desc">
+                            <i class="fas fa-eye" aria-hidden="true"></i>
+                            Ver Nuestro Trabajo
+                        </a>
+                        <div id="btn-secondary-desc" class="sr-only">Explora nuestros proyectos realizados</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Servicios mejorados -->
+        <section id="servicios" class="services" aria-labelledby="services-title">
+            <div class="container">
+                <div class="section-title">
+                    <h2 id="services-title">Nuestros Servicios</h2>
+                    <p>Ofrecemos soluciones tecnológicas completas para digitalizar y optimizar tu negocio</p>
+                </div>
+                <div class="services-grid" role="grid" aria-label="Servicios disponibles">
+                    <article class="service-card" role="gridcell" tabindex="0" 
+                             aria-labelledby="service-web-title" 
+                             aria-describedby="service-web-desc">
+                        <div class="service-icon" aria-hidden="true">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3 id="service-web-title">Desarrollo Web</h3>
+                        <p id="service-web-desc">Sitios web profesionales y aplicaciones web modernas con las últimas tecnologías.</p>
+                        <ul class="service-features" aria-label="Características del desarrollo web">
+                            <li><i class="fas fa-check" aria-hidden="true"></i> <span>React & Next.js</span></li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> <span>Responsive Design</span></li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> <span>SEO Optimizado</span></li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> <span>Hosting Incluido</span></li>
+                        </ul>
+                    </article>
+                    
+                    <article class="service-card" role="gridcell" tabindex="0"
+                             aria-labelledby="service-mobile-title"
+                             aria-describedby="service-mobile-desc">
+                        <div class="service-icon" aria-hidden="true">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3 id="service-mobile-title">Aplicaciones Móviles</h3>
+                        <p id="service-mobile-desc">Apps nativas y multiplataforma para iOS y Android que conectan con tus clientes.</p>
+                        <ul class="service-features" aria-label="Características de aplicaciones móviles">
+                            <li><i class="fas fa-check" aria-hidden="true"></i> <span>React Native</span></li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> <span>iOS & Android</span></li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> <span>Integración con APIs</span></li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> <span>Publicación en Stores</span></li>
+                        </ul>
+                    </article>
+                    
+                    <article class="service-card" role="gridcell" tabindex="0"
+                             aria-labelledby="service-systems-title"
+                             aria-describedby="service-systems-desc">
+                        <div class="service-icon" aria-hidden="true">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3 id="service-systems-title">Sistemas de Gestión</h3>
+                        <p id="service-systems-desc">Sistemas personalizados para optimizar los procesos de tu empresa.</p>
+                        <ul class="service-features" aria-label="Características de sistemas de gestión">
+                            <li><i class="fas fa-check" aria-hidden="true"></i> <span>Gestión de Inventario</span></li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> <span>CRM & ERP</span></li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> <span>Reportes Automatizados</span></li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> <span>Acceso Multi-usuario</span></li>
+                        </ul>
+                    </article>
+                    
+                    <article class="service-card" role="gridcell" tabindex="0"
+                             aria-labelledby="service-ecommerce-title"
+                             aria-describedby="service-ecommerce-desc">
+                        <div class="service-icon" aria-hidden="true">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h3 id="service-ecommerce-title">E-commerce</h3>
+                        <p id="service-ecommerce-desc">Tiendas online completas con pasarelas de pago y gestión de inventario.</p>
+                        <ul class="service-features" aria-label="Características de e-commerce">
+                            <li><i class="fas fa-check" aria-hidden="true"></i> <span>Catálogo de Productos</span></li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> <span>Pasarelas de Pago</span></li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> <span>Panel Administrativo</span></li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> <span>Integración con Redes</span></li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio mejorado - CON PROYECTOS REALES Y CASOS DE ESTUDIO -->
+        <section id="portfolio" class="portfolio" aria-labelledby="portfolio-title">
+            <div class="container">
+                <div class="section-title">
+                    <h2 id="portfolio-title">Nuestros Proyectos</h2>
+                    <p>Conoce algunos de los proyectos desarrollados y casos de estudio de nuestro equipo</p>
+                </div>
+                <div class="portfolio-grid" role="grid" aria-label="Proyectos realizados">
+                    
+                    <!-- PROYECTO REAL 1: Sistema Integral Hotelero -->
+                    <article class="portfolio-item" role="gridcell" tabindex="0"
+                             onclick="openModal('hotel-modal')"
+                             aria-labelledby="project-hotel-title"
+                             aria-describedby="project-hotel-desc"
+                             data-modal="hotel-modal">
+                        <div class="portfolio-image" aria-hidden="true">
+                            <i class="fas fa-hotel"></i>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3 id="project-hotel-title">Sistema Integral Hotelero</h3>
+                            <p id="project-hotel-desc">Solución completa que incluye sistema de gestión interna y sitio web corporativo con motor de reservas online integrado.</p>
+                            <div class="portfolio-tags" aria-label="Tecnologías utilizadas">
+                                <span class="tag">React</span>
+                                <span class="tag">Node.js</span>
+                                <span class="tag">PostgreSQL</span>
+                                <span class="tag">Stripe</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- PROYECTO REAL 2: Sistema de Stock para Supermercado -->
+                    <article class="portfolio-item" role="gridcell" tabindex="0"
+                             onclick="openModal('stock-modal')"
+                             aria-labelledby="project-stock-title"
+                             aria-describedby="project-stock-desc"
+                             data-modal="stock-modal">
+                        <div class="portfolio-image" aria-hidden="true">
+                            <i class="fas fa-store"></i>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3 id="project-stock-title">Sistema de Gestión de Stock</h3>
+                            <p id="project-stock-desc">Sistema completo para supermercado con control de inventario, códigos de barras, reportes de ventas y gestión de proveedores.</p>
+                            <div class="portfolio-tags" aria-label="Tecnologías utilizadas">
+                                <span class="tag">Next.js</span>
+                                <span class="tag">MongoDB</span>
+                                <span class="tag">Scanner</span>
+                                <span class="tag">Dashboard</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- CASO DE ESTUDIO 1: E-commerce -->
+                    <article class="portfolio-item portfolio-case-study" role="gridcell" tabindex="0"
+                             onclick="openModal('ecommerce-modal')"
+                             aria-labelledby="project-ecommerce-title"
+                             aria-describedby="project-ecommerce-desc"
+                             data-modal="ecommerce-modal">
+                        <div class="portfolio-image" aria-hidden="true">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3 id="project-ecommerce-title">E-commerce de Moda</h3>
+                            <p id="project-ecommerce-desc">Prototipo de tienda online especializada con catálogo avanzado, carrito inteligente y múltiples métodos de pago.</p>
+                            <div class="portfolio-tags" aria-label="Tecnologías utilizadas">
+                                <span class="tag">React</span>
+                                <span class="tag">Express</span>
+                                <span class="tag">MySQL</span>
+                                <span class="tag">PayPal</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- CASO DE ESTUDIO 2: App Móvil -->
+                    <article class="portfolio-item portfolio-case-study" role="gridcell" tabindex="0"
+                             onclick="openModal('mobile-app-modal')"
+                             aria-labelledby="project-app-title"
+                             aria-describedby="project-app-desc"
+                             data-modal="mobile-app-modal">
+                        <div class="portfolio-image" aria-hidden="true">
+                            <i class="fas fa-mobile-screen"></i>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3 id="project-app-title">App de Delivery</h3>
+                            <p id="project-app-desc">Aplicación móvil conceptual para delivery con geolocalización, tracking en tiempo real y sistema de pagos integrado.</p>
+                            <div class="portfolio-tags" aria-label="Tecnologías utilizadas">
+                                <span class="tag">React Native</span>
+                                <span class="tag">Firebase</span>
+                                <span class="tag">Google Maps</span>
+                                <span class="tag">Stripe</span>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- NUEVO: Turnos Médicos -->
+<article class="portfolio-item portfolio-case-study" role="gridcell" tabindex="0"
+         onclick="openModal('turnos-modal')"
+         aria-labelledby="project-turnos-title"
+         aria-describedby="project-turnos-desc"
+         data-modal="turnos-modal">
+  <div class="portfolio-image" aria-hidden="true">
+    <i class="fas fa-calendar-check"></i>
+  </div>
+  <div class="portfolio-content">
+    <h3 id="project-turnos-title">Turnos Médicos</h3>
+    <p id="project-turnos-desc">Agenda online con recordatorios por WhatsApp, salas y profesionales, y panel administrativo para clínicas.</p>
+    <div class="portfolio-tags" aria-label="Tecnologías utilizadas">
+      <span class="tag">Next.js</span>
+      <span class="tag">Prisma</span>
+      <span class="tag">PostgreSQL</span>
+      <span class="tag">Twilio</span>
+    </div>
+  </div>
+</article>
+
+<!-- NUEVO: Gestión de Taller -->
+<article class="portfolio-item" role="gridcell" tabindex="0"
+         onclick="openModal('taller-modal')"
+         aria-labelledby="project-taller-title"
+         aria-describedby="project-taller-desc"
+         data-modal="taller-modal">
+  <div class="portfolio-image" aria-hidden="true">
+    <i class="fas fa-tools"></i>
+  </div>
+  <div class="portfolio-content">
+    <h3 id="project-taller-title">Gestión de Taller</h3>
+    <p id="project-taller-desc">Órdenes de trabajo, repuestos, caja y comunicación con clientes por WhatsApp.</p>
+    <div class="portfolio-tags" aria-label="Tecnologías utilizadas">
+      <span class="tag">React</span>
+      <span class="tag">Node.js</span>
+      <span class="tag">SQLite</span>
+      <span class="tag">Electron</span>
+    </div>
+  </div>
+</article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- About mejorado -->
+        <section id="nosotros" class="about" aria-labelledby="about-title">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2 id="about-title">¿Por qué elegir Kodo Labs?</h2>
+                        <p>Somos <strong>estudiantes de Ingeniería en Sistemas de la UCP</strong> apasionados por la tecnología. Creemos que todas las empresas, sin importar su tamaño, merecen acceso a soluciones digitales de calidad.</p>
+                        <p>Nuestro modelo de negocio está diseñado para ser una <em>relación ganar-ganar</em>: tú obtienes digitalización de calidad a precios competitivos, mientras nosotros ganamos experiencia real y construimos nuestro futuro profesional.</p>
+                        <ul class="about-features" aria-label="Ventajas de elegir Kodo Labs">
+                            <li>
+                                <i class="fas fa-dollar-sign" aria-hidden="true"></i> 
+                                <span>Precios competitivos para PyMEs</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-graduation-cap" aria-hidden="true"></i> 
+                                <span>Estudiantes de Ingeniería en Sistemas</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-handshake" aria-hidden="true"></i> 
+                                <span>Relación colaborativa y transparente</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-rocket" aria-hidden="true"></i> 
+                                <span>Tecnologías modernas y actuales</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-headset" aria-hidden="true"></i> 
+                                <span>Soporte continuo post-desarrollo</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="about-image" aria-hidden="true">
+                        <i class="fas fa-users"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact mejorado - EMAIL ACTUALIZADO -->
+        <section id="contacto" class="contact" aria-labelledby="contact-title">
+            <div class="container">
+                <div class="section-title">
+                    <h2 id="contact-title">¿Listo para digitalizar tu negocio?</h2>
+                    <p>Contáctanos para una consulta gratuita y descubre cómo podemos ayudarte</p>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Conversemos sobre tu proyecto</h3>
+                        <p>Estamos aquí para ayudarte a hacer realidad tus ideas. Contáctanos por email y te responderemos en menos de 24 horas.</p>
+                        
+                        <address>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope" aria-hidden="true"></i>
+                                <div>
+                                    <h4>Email</h4>
+                                    <p><a href="mailto:info@kodo-labs.com">info@kodo-labs.com</a></p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                <div>
+                                    <h4>Ubicación</h4>
+                                    <p>Posadas, Misiones, Argentina</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <i class="fas fa-clock" aria-hidden="true"></i>
+                                <div>
+                                    <h4>Horarios de Respuesta</h4>
+                                    <p>
+                                        <time>Lunes a Viernes: 9:00 - 19:00</time><br>
+                                        <time>Sábados: 9:00 - 13:00</time>
+                                    </p>
+                                </div>
+                            </div>
+                        </address>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <h3>Envíanos un mensaje</h3>
+                        
+                        <form id="contact-form" novalidate aria-label="Formulario de contacto">
+                            <div class="form-group">
+                                <label for="name">
+                                    Nombre <span aria-label="campo requerido">*</span>
+                                </label>
+                                <input type="text" 
+                                       id="name" 
+                                       name="name" 
+                                       required 
+                                       aria-describedby="name-error"
+                                       autocomplete="given-name"
+                                       placeholder="Tu nombre completo">
+                                <div id="name-error" class="error-text" role="alert"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">
+                                    Email <span aria-label="campo requerido">*</span>
+                                </label>
+                                <input type="email" 
+                                       id="email" 
+                                       name="email" 
+                                       required 
+                                       aria-describedby="email-error"
+                                       autocomplete="email"
+                                       placeholder="tu@email.com">
+                                <div id="email-error" class="error-text" role="alert"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="company">Empresa</label>
+                                <input type="text" 
+                                       id="company" 
+                                       name="company"
+                                       autocomplete="organization"
+                                       placeholder="Nombre de tu empresa (opcional)">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="service">Servicio de Interés</label>
+                                <select id="service" name="service" aria-describedby="service-help">
+                                    <option value="">Selecciona un servicio</option>
+                                    <option value="web">Desarrollo Web</option>
+                                    <option value="mobile">Aplicación Móvil</option>
+                                    <option value="system">Sistema de Gestión</option>
+                                    <option value="ecommerce">E-commerce</option>
+                                    <option value="consultation">Consultoría</option>
+                                    <option value="other">Otro</option>
+                                </select>
+                                <div id="service-help" class="help-text">Opcional: ayúdanos a entender mejor tu proyecto</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">
+                                    Mensaje <span aria-label="campo requerido">*</span>
+                                </label>
+                                <textarea id="message" 
+                                          name="message" 
+                                          required 
+                                          aria-describedby="message-error message-help"
+                                          placeholder="Cuéntanos sobre tu proyecto, objetivos y cómo podemos ayudarte..."></textarea>
+                                <div id="message-help" class="help-text">Describe tu proyecto con el mayor detalle posible</div>
+                                <div id="message-error" class="error-text" role="alert"></div>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                                Enviar Mensaje
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer ultra premium - EMAIL ACTUALIZADO -->
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Kodo Labs</h3>
+                    <p>Digitalizamos tu negocio con soluciones modernas y precios competitivos. Estudiantes de Ingeniería en Sistemas comprometidos con tu éxito.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/kodo-labs-7b4765382/" aria-label="Síguenos en LinkedIn">
+                            <i class="fab fa-linkedin" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://github.com/kodo.labs" aria-label="Síguenos en GitHub">
+                            <i class="fab fa-github" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://instagram.com/kodo.labs" aria-label="Síguenos en Instagram">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                        </a>
+                        <a href="mailto:info@kodo-labs.com" aria-label="Envíanos un email">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Servicios</h3>
+                    <a href="#servicios">Desarrollo Web</a>
+                    <a href="#servicios">Aplicaciones Móviles</a>
+                    <a href="#servicios">Sistemas de Gestión</a>
+                    <a href="#servicios">E-commerce</a>
+                    <a href="#contacto">Consultoría</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Empresa</h3>
+                    <a href="#nosotros">Sobre Nosotros</a>
+                    <a href="#portfolio">Portfolio</a>
+                    <a href="#contacto">Contacto</a>
+                    <a href="/privacy">Política de Privacidad</a>
+                    <a href="/terms">Términos y Condiciones</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Posadas, Misiones</p>
+                    <p><i class="fas fa-envelope" aria-hidden="true"></i> info@kodo-labs.com</p>
+                    <p><i class="fas fa-clock" aria-hidden="true"></i> Lun-Vie: 9:00-19:00</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Kodo Labs. Todos los derechos reservados.</p>
+                <p>Desarrollado con ❤️ por estudiantes de Ingeniería en Sistemas</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot HTML -->
+    <button class="chatbot-trigger" id="chatbot-trigger">
+        <i class="fas fa-comment-dots"></i>
+        <div class="chatbot-notification" id="chatbot-notification" style="display: none;">1</div>
+    </button>
+
+    <div class="chatbot-container" id="chatbot-container">
+        <div class="chatbot-header">
+            <h3>
+                <i class="fas fa-robot"></i>
+                Asistente Kodo Labs
+            </h3>
+            <div class="chatbot-status">
+                <div class="status-dot"></div>
+                En línea • Respuesta rápida
+            </div>
+        </div>
+
+        <div class="chatbot-messages" id="chatbot-messages">
+            <div class="chatbot-loading" id="chatbot-loading">
+                <div class="loading-spinner"></div>
+            </div>
+        </div>
+
+        <div class="typing-indicator" id="typing-indicator">
+            <div class="typing-dots">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            </div>
+        </div>
+
+        <div class="chatbot-input">
+            <input type="text" id="chatbot-input" placeholder="Escribe tu mensaje..." maxlength="500">
+            <button class="chatbot-send" id="chatbot-send">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- MODALES DE PROYECTOS -->
+    
+    <!-- Modal: Sistema Integral Hotelero - ACTUALIZADO -->
+    <div id="hotel-modal" class="modal" role="dialog" aria-labelledby="hotel-modal-title" aria-modal="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="hotel-modal-title">Sistema Integral Hotelero</h2>
+                <button class="modal-close" onclick="closeModal('hotel-modal')" aria-label="Cerrar modal">
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="project-images">
+                    <div class="project-img">Dashboard de Gestión</div>
+                    <div class="project-img">Sistema de Reservas</div>
+                    <div class="project-img">Sitio Web Corporativo</div>
+                    <div class="project-img">Motor de Reservas Online</div>
+                </div>
+                
+                <div class="project-details">
+                    <h3>Descripción del Proyecto</h3>
+                    <p>Desarrollamos una solución integral que combina un sistema de gestión hotelera completo con un sitio web corporativo profesional. El proyecto incluye tanto la administración interna del hotel como la presencia digital con motor de reservas integrado.</p>
+                    
+                    <h3>Características Principales</h3>
+                    <ul>
+                        <li><strong>Sistema de Gestión Interno:</strong> Panel administrativo completo para operaciones diarias</li>
+                        <li><strong>Motor de Reservas Online:</strong> Sistema de reservas integrado en el sitio web</li>
+                        <li><strong>Gestión de Habitaciones:</strong> Control de disponibilidad y estado en tiempo real</li>
+                        <li><strong>Check-in/Check-out Digital:</strong> Proceso optimizado para huéspedes</li>
+                        <li><strong>Sitio Web Corporativo:</strong> Presencia digital profesional y responsive</li>
+                        <li><strong>Gestión de Huéspedes:</strong> Base de datos integrada con historial</li>
+                        <li><strong>Reportes y Analytics:</strong> Métricas de ocupación e ingresos</li>
+                        <li><strong>Pasarela de Pagos:</strong> Integración segura para reservas online</li>
+                    </ul>
+                    
+                    <h3>Tecnologías Utilizadas</h3>
+                    <ul>
+                        <li><strong>Frontend:</strong> React.js para interfaces dinámicas y responsive</li>
+                        <li><strong>Backend:</strong> Node.js con Express para API robusta</li>
+                        <li><strong>Base de Datos:</strong> PostgreSQL para manejo de datos complejos</li>
+                        <li><strong>Pagos:</strong> Integración con Stripe para transacciones seguras</li>
+                        <li><strong>Hosting:</strong> Implementación en AWS con backups automáticos</li>
+                        <li><strong>Seguridad:</strong> Autenticación JWT y encriptación SSL</li>
+                    </ul>
+                    
+                    <h3>Resultados Obtenidos</h3>
+                    <ul>
+                        <li>📈 <strong>60% incremento</strong> en reservas online</li>
+                        <li>⚡ <strong>70% reducción</strong> en tiempo de gestión administrativa</li>
+                        <li>💰 <strong>Mejora significativa</strong> en control de ingresos</li>
+                        <li>📊 <strong>100% digitalización</strong> de procesos operativos</li>
+                        <li>😊 <strong>Mayor satisfacción</strong> del cliente con reservas online</li>
+                    </ul>
+                    
+                    <h3>Proceso de Desarrollo</h3>
+                    <p>El proyecto se desarrolló en fases iterativas: primero el sistema de gestión interno, luego el sitio web corporativo, y finalmente la integración completa del motor de reservas. Se implementó metodología ágil con entregas parciales para validación continua.</p>
+                    
+                    <p><strong>Duración:</strong> 4 meses | <strong>Equipo:</strong> 3 desarrolladores | <strong>Estado:</strong> En producción</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Sistema de Gestión de Stock - MANTENIDO -->
+    <div id="stock-modal" class="modal" role="dialog" aria-labelledby="stock-modal-title" aria-modal="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="stock-modal-title">Sistema de Gestión de Stock</h2>
+                <button class="modal-close" onclick="closeModal('stock-modal')" aria-label="Cerrar modal">
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="project-images">
+                    <div class="project-img">
+                        <img src="images/portfolio/stock/dashboard-principal.jpg" alt="Dashboard Principal - Panel de control con métricas y estado general del sistema">
+                        <div class="img-overlay">Dashboard Principal</div>
+                    </div>
+                    <div class="project-img">
+                        <img src="images/portfolio/stock/punto-de-venta.jpg" alt="Punto de Venta - Sistema de caja con búsqueda de productos y carrito de compras">
+                        <div class="img-overlay">Sistema de Punto de Venta</div>
+                    </div>
+                    <div class="project-img">
+                        <img src="images/portfolio/stock/gestion-inventario.jpg" alt="Gestión de Inventario - Lista de productos con stock, precios y categorías">
+                        <div class="img-overlay">Gestión de Inventario</div>
+                    </div>
+                    <div class="project-img">
+                        <img src="images/portfolio/stock/reportes-financieros.jpg" alt="Reportes Financieros - Análisis de ventas con gráficos y estadísticas">
+                        <div class="img-overlay">Reportes y Analytics</div>
+                    </div>
+                </div>
+                
+                <div class="project-details">
+                    <h3>Descripción del Proyecto</h3>
+                    <p>Sistema completo de gestión de inventario desarrollado para una cadena de supermercados. La solución incluye control de stock en tiempo real, gestión de proveedores, reportes automáticos y una interfaz móvil para escaneo de productos.</p>
+                    
+                    <h3>Características Principales</h3>
+                    <ul>
+                        <li><strong>Dashboard Intuitivo:</strong> Panel de control centralizado con métricas en tiempo real y alertas automáticas</li>
+                        <li><strong>Punto de Venta Avanzado:</strong> Sistema POS completo con búsqueda rápida de productos y gestión de clientes</li>
+                        <li><strong>Control de Inventario:</strong> Seguimiento en tiempo real de todos los productos con alertas de stock bajo</li>
+                        <li><strong>Scanner de Códigos:</strong> App móvil para escaneo rápido de productos y actualización de inventario</li>
+                        <li><strong>Gestión de Proveedores:</strong> Base de datos completa con historial de compras y evaluaciones</li>
+                        <li><strong>Reportes Inteligentes:</strong> Analytics de ventas, rotación y tendencias con gráficos interactivos</li>
+                        <li><strong>Multi-sucursal:</strong> Gestión centralizada de múltiples ubicaciones desde un solo panel</li>
+                        <li><strong>API Integrada:</strong> Conexión con sistemas contables externos y pasarelas de pago</li>
+                    </ul>
+                    
+                    <h3>Tecnologías Utilizadas</h3>
+                    <ul>
+                        <li><strong>Frontend:</strong> Next.js con Server-Side Rendering para máximo rendimiento</li>
+                        <li><strong>Backend:</strong> Node.js con GraphQL API para consultas eficientes</li>
+                        <li><strong>Base de Datos:</strong> MongoDB con indexación optimizada para grandes volúmenes</li>
+                        <li><strong>App Móvil:</strong> React Native con scanner nativo de códigos de barras</li>
+                        <li><strong>Cloud:</strong> Google Cloud Platform con escalado automático</li>
+                        <li><strong>Analytics:</strong> Charts.js y D3.js para visualización de datos avanzada</li>
+                    </ul>
+                    
+                    <h3>Resultados Obtenidos</h3>
+                    <ul>
+                        <li>📦 <strong>90% reducción</strong> en errores de inventario</li>
+                        <li>⏱️ <strong>75% ahorro</strong> en tiempo de gestión de stock</li>
+                        <li>💸 <strong>25% reducción</strong> en pérdidas por vencimientos</li>
+                        <li>📱 <strong>100% adopción</strong> de la app móvil por empleados</li>
+                        <li>📈 <strong>40% mejora</strong> en eficiencia operativa</li>
+                    </ul>
+                    
+                    <p><strong>Duración:</strong> 3 meses | <strong>Equipo:</strong> 2 desarrolladores fullstack | <strong>Estado:</strong> En producción</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: E-commerce - MARCADO COMO CASO DE ESTUDIO -->
+    <div id="ecommerce-modal" class="modal" role="dialog" aria-labelledby="ecommerce-modal-title" aria-modal="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="ecommerce-modal-title">E-commerce de Moda - Caso de Estudio</h2>
+                <button class="modal-close" onclick="closeModal('ecommerce-modal')" aria-label="Cerrar modal">
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="project-images">
+                    <div class="project-img">Catálogo de Productos</div>
+                    <div class="project-img">Carrito de Compras</div>
+                    <div class="project-img">Panel Administrativo</div>
+                    <div class="project-img">Proceso de Pago</div>
+                </div>
+                
+                <div class="project-details">
+                    <h3>Sobre este Caso de Estudio</h3>
+                    <p>Este es un proyecto conceptual que demuestra nuestras capacidades en desarrollo de e-commerce. Representa el tipo de solución que desarrollamos para tiendas online especializadas, basado en las mejores prácticas del sector.</p>
+                    
+                    <h3>Características que Implementaríamos</h3>
+                    <ul>
+                        <li><strong>Catálogo Avanzado:</strong> Filtros inteligentes por categorías, tallas, colores y precios</li>
+                        <li><strong>Carrito Inteligente:</strong> Guardado automático y recomendaciones personalizadas</li>
+                        <li><strong>Múltiples Métodos de Pago:</strong> Tarjetas, transferencias y cuotas</li>
+                        <li><strong>Gestión de Stock:</strong> Control automático de inventario y variantes</li>
+                        <li><strong>Sistema de Envíos:</strong> Integración con correos y cálculo automático</li>
+                        <li><strong>Panel Administrativo:</strong> Dashboard completo para gestión</li>
+                        <li><strong>SEO Optimizado:</strong> Estructura optimizada para buscadores</li>
+                        <li><strong>Responsive Design:</strong> Perfecta experiencia móvil</li>
+                    </ul>
+                    
+                    <h3>Stack Tecnológico Propuesto</h3>
+                    <ul>
+                        <li><strong>Frontend:</strong> React.js con componentes reutilizables</li>
+                        <li><strong>Backend:</strong> Express.js con arquitectura escalable</li>
+                        <li><strong>Base de Datos:</strong> MySQL para relaciones complejas</li>
+                        <li><strong>Pagos:</strong> Integración con múltiples procesadores</li>
+                        <li><strong>Hosting:</strong> Optimizado para e-commerce</li>
+                    </ul>
+                    
+                    <h3>Funcionalidades Destacadas</h3>
+                    <p>Este tipo de proyecto incluiría un sistema de recomendaciones inteligente, configurador de outfits, programa de fidelización, y análisis detallado del comportamiento del usuario para optimizar conversiones.</p>
+                    
+                    <p><strong>¿Interesado en un proyecto similar?</strong> Contactanos para discutir tu visión específica.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: App Móvil - MARCADO COMO CASO DE ESTUDIO -->
+    <div id="mobile-app-modal" class="modal" role="dialog" aria-labelledby="mobile-app-modal-title" aria-modal="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="mobile-app-modal-title">App de Delivery - Prototipo Conceptual</h2>
+                <button class="modal-close" onclick="closeModal('mobile-app-modal')" aria-label="Cerrar modal">
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="project-images">
+                    <div class="project-img">Pantalla Principal</div>
+                    <div class="project-img">Tracking en Tiempo Real</div>
+                    <div class="project-img">App del Repartidor</div>
+                    <div class="project-img">Panel Administrativo</div>
+                </div>
+                
+                <div class="project-details">
+                    <h3>Prototipo de App de Delivery</h3>
+                    <p>Este es un ejemplo conceptual de aplicación móvil de delivery que showcasea nuestra experiencia en desarrollo móvil multiplataforma. Representa el tipo de ecosistema digital complejo que podemos desarrollar.</p>
+                    
+                    <h3>Arquitectura Propuesta</h3>
+                    <ul>
+                        <li><strong>App Cliente:</strong> Búsqueda de restaurantes, pedidos y seguimiento</li>
+                        <li><strong>App Repartidor:</strong> Gestión de entregas y optimización de rutas</li>
+                        <li><strong>App Restaurante:</strong> Gestión de menú y tiempos de preparación</li>
+                        <li><strong>Panel Web Admin:</strong> Control total del ecosistema</li>
+                        <li><strong>Geolocalización:</strong> Tracking preciso GPS</li>
+                        <li><strong>Pagos Integrados:</strong> Múltiples métodos seguros</li>
+                        <li><strong>Notificaciones:</strong> Updates en tiempo real</li>
+                        <li><strong>Sistema de Rating:</strong> Calificaciones bidireccionales</li>
+                    </ul>
+                    
+                    <h3>Tecnologías que Utilizaríamos</h3>
+                    <ul>
+                        <li><strong>Mobile:</strong> React Native para iOS y Android</li>
+                        <li><strong>Backend:</strong> Node.js con Socket.io para tiempo real</li>
+                        <li><strong>Base de Datos:</strong> Firebase para sincronización</li>
+                        <li><strong>Mapas:</strong> Google Maps API con rutas optimizadas</li>
+                        <li><strong>Pagos:</strong> Stripe con soporte internacional</li>
+                        <li><strong>Push Notifications:</strong> Firebase Cloud Messaging</li>
+                    </ul>
+                    
+                    <h3>Innovaciones Técnicas</h3>
+                    <p>Incluiría algoritmos predictivos para tiempos de entrega, sistema de cache offline, optimización de rutas con IA, y analytics avanzados para métricas de negocio.</p>
+                    
+                    <p><strong>¿Tienes una idea similar?</strong> Podemos ayudarte a convertirla en realidad.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: Turnos Médicos (ficticio) -->
+<div id="turnos-modal" class="modal" role="dialog" aria-labelledby="turnos-modal-title" aria-modal="true">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 id="turnos-modal-title">Turnos Médicos</h2>
+      <button class="modal-close" onclick="closeModal('turnos-modal')" aria-label="Cerrar modal">
+        <i class="fas fa-times" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="project-images">
+        <div class="project-img">Agenda de Consultorios</div>
+        <div class="project-img">Recordatorios por WhatsApp</div>
+        <div class="project-img">Panel de Profesionales</div>
+        <div class="project-img">Gestión de Pacientes</div>
+      </div>
+      <div class="project-details">
+        <h3>Descripción</h3>
+        <p>Plataforma de turnos con múltiples sedes, profesionales y salas, recordatorios automáticos y panel web.</p>
+        <h3>Stack</h3>
+        <ul>
+          <li>Next.js + Prisma</li>
+          <li>PostgreSQL</li>
+          <li>Twilio WhatsApp</li>
+          <li>Auth con JWT</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Gestión de Taller (ficticio) -->
+<div id="taller-modal" class="modal" role="dialog" aria-labelledby="taller-modal-title" aria-modal="true">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 id="taller-modal-title">Gestión de Taller</h2>
+      <button class="modal-close" onclick="closeModal('taller-modal')" aria-label="Cerrar modal">
+        <i class="fas fa-times" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="project-images">
+        <div class="project-img">Órdenes de Trabajo</div>
+        <div class="project-img">Stock de Repuestos</div>
+        <div class="project-img">Caja y Presupuestos</div>
+        <div class="project-img">Mensajería con Clientes</div>
+      </div>
+      <div class="project-details">
+        <h3>Descripción</h3>
+        <p>Sistema de escritorio y web para talleres mecánicos: OT, repuestos, caja diaria y comunicación.</p>
+        <h3>Stack</h3>
+        <ul>
+          <li>React + Electron</li>
+          <li>Node.js API</li>
+          <li>SQLite</li>
+          <li>Integración con WhatsApp</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Scripts -->
+    <script src="js/scripts.js"></script>
+    <script src="js/chatbot.js"></script>
+    
+    <!-- Google Analytics (opcional) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+</body>
+</html>

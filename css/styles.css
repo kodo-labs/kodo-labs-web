@@ -3207,3 +3207,112 @@ option {
     max-width: none !important; /* que no limite a 1200 si el contenedor es más chico */
   }
 }
+
+/* === Lightbox styles (inlined) === */
+/* --- Minimal Lightbox CSS (safe defaults) --- */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  inset: 0;
+  background: rgba(0,0,0,0.95);
+  opacity: 0;
+  transition: opacity .3s ease;
+  align-items: center;
+  justify-content: center;
+}
+.lightbox.active { opacity: 1; }
+
+.lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  animation: lb-zoom-in .25s ease-out;
+}
+@keyframes lb-zoom-in {
+  from { transform: scale(.9); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+.lightbox-image {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.5);
+  transition: opacity .15s ease;
+}
+
+.lightbox-close,
+.lightbox-nav {
+  position: absolute;
+  background: rgba(255,255,255,0.9);
+  color: #333;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .2s ease, background .2s ease, opacity .2s ease;
+}
+
+.lightbox-close {
+  top: -48px;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+}
+.lightbox-close:hover { transform: scale(1.08); background: #fff; }
+
+.lightbox-nav {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  font-size: 18px;
+  opacity: .85;
+}
+.lightbox-nav:hover { transform: translateY(-50%) scale(1.08); background: #fff; }
+
+.lightbox-prev { left: -68px; }
+.lightbox-next { right: -68px; }
+
+.lightbox-counter {
+  position: absolute;
+  bottom: -48px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,0.92);
+  color: #333;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font: 500 14px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+
+.lightbox-caption {
+  position: absolute;
+  bottom: -92px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  text-align: center;
+  max-width: 600px;
+  font: 500 16px/1.35 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Mobile tweaks */
+@media (max-width: 480px) {
+  .lightbox-close {
+    position: fixed; top: 16px; right: 16px;
+  }
+  .lightbox-prev, .lightbox-next {
+    position: fixed; bottom: 18px; top: auto; transform: none;
+    width: 44px; height: 44px;
+  }
+  .lightbox-prev { left: 18px; }
+  .lightbox-next { right: 18px; }
+  .lightbox-counter { bottom: 74px; }
+  .lightbox-caption { bottom: 120px; font-size: 14px; padding: 0 10px; }
+}

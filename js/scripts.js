@@ -312,7 +312,7 @@ KodoLabs.Navigation = {
         // Estilos inline para el botón
         Object.assign(scrollToTopBtn.style, {
             position: 'fixed',
-            bottom: '100px',
+            bottom: '50px',
             right: '30px',
             width: '55px',
             height: '55px',

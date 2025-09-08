@@ -61,7 +61,6 @@
     
     <!-- CSS principal -->
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/chatbot.css">
     
     <!-- Schema.org JSON-LD para SEO - ACTUALIZADO -->
     <script type="application/ld+json">
@@ -127,6 +126,8 @@
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="//api.whatsapp.com">
+
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Skip to main content para accesibilidad -->
@@ -358,47 +359,48 @@
                             </div>
                         </div>
                     </article>
+                    
                     <!-- NUEVO: Turnos Médicos -->
-<article class="portfolio-item portfolio-case-study" role="gridcell" tabindex="0"
-         onclick="openModal('turnos-modal')"
-         aria-labelledby="project-turnos-title"
-         aria-describedby="project-turnos-desc"
-         data-modal="turnos-modal">
-  <div class="portfolio-image" aria-hidden="true">
-    <i class="fas fa-calendar-check"></i>
-  </div>
-  <div class="portfolio-content">
-    <h3 id="project-turnos-title">Turnos Médicos</h3>
-    <p id="project-turnos-desc">Agenda online con recordatorios por WhatsApp, salas y profesionales, y panel administrativo para clínicas.</p>
-    <div class="portfolio-tags" aria-label="Tecnologías utilizadas">
-      <span class="tag">Next.js</span>
-      <span class="tag">Prisma</span>
-      <span class="tag">PostgreSQL</span>
-      <span class="tag">Twilio</span>
-    </div>
-  </div>
-</article>
+                    <article class="portfolio-item portfolio-case-study" role="gridcell" tabindex="0"
+                             onclick="openModal('turnos-modal')"
+                             aria-labelledby="project-turnos-title"
+                             aria-describedby="project-turnos-desc"
+                             data-modal="turnos-modal">
+                        <div class="portfolio-image" aria-hidden="true">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3 id="project-turnos-title">Turnos Médicos</h3>
+                            <p id="project-turnos-desc">Agenda online con recordatorios por WhatsApp, salas y profesionales, y panel administrativo para clínicas.</p>
+                            <div class="portfolio-tags" aria-label="Tecnologías utilizadas">
+                                <span class="tag">Next.js</span>
+                                <span class="tag">Prisma</span>
+                                <span class="tag">PostgreSQL</span>
+                                <span class="tag">Twilio</span>
+                            </div>
+                        </div>
+                    </article>
 
-<!-- NUEVO: Gestión de Taller -->
-<article class="portfolio-item" role="gridcell" tabindex="0"
-         onclick="openModal('taller-modal')"
-         aria-labelledby="project-taller-title"
-         aria-describedby="project-taller-desc"
-         data-modal="taller-modal">
-  <div class="portfolio-image" aria-hidden="true">
-    <i class="fas fa-tools"></i>
-  </div>
-  <div class="portfolio-content">
-    <h3 id="project-taller-title">Gestión de Taller</h3>
-    <p id="project-taller-desc">Órdenes de trabajo, repuestos, caja y comunicación con clientes por WhatsApp.</p>
-    <div class="portfolio-tags" aria-label="Tecnologías utilizadas">
-      <span class="tag">React</span>
-      <span class="tag">Node.js</span>
-      <span class="tag">SQLite</span>
-      <span class="tag">Electron</span>
-    </div>
-  </div>
-</article>
+                    <!-- NUEVO: Gestión de Taller -->
+                    <article class="portfolio-item" role="gridcell" tabindex="0"
+                             onclick="openModal('taller-modal')"
+                             aria-labelledby="project-taller-title"
+                             aria-describedby="project-taller-desc"
+                             data-modal="taller-modal">
+                        <div class="portfolio-image" aria-hidden="true">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3 id="project-taller-title">Gestión de Taller</h3>
+                            <p id="project-taller-desc">Órdenes de trabajo, repuestos, caja y comunicación con clientes por WhatsApp.</p>
+                            <div class="portfolio-tags" aria-label="Tecnologías utilizadas">
+                                <span class="tag">React</span>
+                                <span class="tag">Node.js</span>
+                                <span class="tag">SQLite</span>
+                                <span class="tag">Electron</span>
+                            </div>
+                        </div>
+                    </article>
 
                 </div>
             </div>
@@ -619,346 +621,364 @@
         </div>
     </footer>
 
-    <!-- Chatbot HTML -->
-    <button class="chatbot-trigger" id="chatbot-trigger">
-        <i class="fas fa-comment-dots"></i>
-        <div class="chatbot-notification" id="chatbot-notification" style="display: none;">1</div>
-    </button>
-
-    <div class="chatbot-container" id="chatbot-container">
-        <div class="chatbot-header">
-            <h3>
-                <i class="fas fa-robot"></i>
-                Asistente Kodo Labs
-            </h3>
-            <div class="chatbot-status">
-                <div class="status-dot"></div>
-                En línea • Respuesta rápida
-            </div>
-        </div>
-
-        <div class="chatbot-messages" id="chatbot-messages">
-            <div class="chatbot-loading" id="chatbot-loading">
-                <div class="loading-spinner"></div>
-            </div>
-        </div>
-
-        <div class="typing-indicator" id="typing-indicator">
-            <div class="typing-dots">
-                <div class="typing-dot"></div>
-                <div class="typing-dot"></div>
-                <div class="typing-dot"></div>
-            </div>
-        </div>
-
-        <div class="chatbot-input">
-            <input type="text" id="chatbot-input" placeholder="Escribe tu mensaje..." maxlength="500">
-            <button class="chatbot-send" id="chatbot-send">
-                <i class="fas fa-paper-plane"></i>
+<!-- Modal: Sistema Integral Hotelero - ACTUALIZADO -->
+<div id="hotel-modal" class="modal" role="dialog" aria-labelledby="hotel-modal-title" aria-modal="true">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="hotel-modal-title">Sistema Integral Hotelero</h2>
+            <button class="modal-close" onclick="closeModal('hotel-modal')" aria-label="Cerrar modal">
+                <i class="fas fa-times" aria-hidden="true"></i>
             </button>
         </div>
-    </div>
-
-    <!-- MODALES DE PROYECTOS -->
-    
-    <!-- Modal: Sistema Integral Hotelero - ACTUALIZADO -->
-    <div id="hotel-modal" class="modal" role="dialog" aria-labelledby="hotel-modal-title" aria-modal="true">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="hotel-modal-title">Sistema Integral Hotelero</h2>
-                <button class="modal-close" onclick="closeModal('hotel-modal')" aria-label="Cerrar modal">
-                    <i class="fas fa-times" aria-hidden="true"></i>
-                </button>
+        <div class="modal-body">
+            <div class="project-images">
+                <div class="project-img">
+                    <img src="images/portfolio/hotel/dashboard-principal.png" alt="Dashboard Principal - Panel de control hotelero">
+                    <div class="img-overlay">Dashboard de Gestión</div>
+                </div>
+                <div class="project-img">
+                    <img src="images/portfolio/hotel/sistema-reservas.png" alt="Sistema de Reservas - gestión de reservas en hotel">
+                    <div class="img-overlay">Sistema de Reservas</div>
+                </div>
+                <div class="project-img">
+                    <img src="images/portfolio/hotel/sitio-web.png" alt="Sitio Web Corporativo - Página web hotel">
+                    <div class="img-overlay">Sitio Web Corporativo</div>
+                </div>
+                <div class="project-img">
+                    <img src="images/portfolio/hotel/motor-reservas.png" alt="Motor de Reservas Online - integración online">
+                    <div class="img-overlay">Motor de Reservas Online</div>
+                </div>
             </div>
-            <div class="modal-body">
-                <div class="project-images">
-                    <div class="project-img">Dashboard de Gestión</div>
-                    <div class="project-img">Sistema de Reservas</div>
-                    <div class="project-img">Sitio Web Corporativo</div>
-                    <div class="project-img">Motor de Reservas Online</div>
-                </div>
+            
+            <div class="project-details">
+                <h3>Descripción del Proyecto</h3>
+                <p>Desarrollamos una solución integral que combina un sistema de gestión hotelera completo con un sitio web corporativo profesional. El proyecto incluye tanto la administración interna del hotel como la presencia digital con motor de reservas integrado.</p>
                 
-                <div class="project-details">
-                    <h3>Descripción del Proyecto</h3>
-                    <p>Desarrollamos una solución integral que combina un sistema de gestión hotelera completo con un sitio web corporativo profesional. El proyecto incluye tanto la administración interna del hotel como la presencia digital con motor de reservas integrado.</p>
-                    
-                    <h3>Características Principales</h3>
-                    <ul>
-                        <li><strong>Sistema de Gestión Interno:</strong> Panel administrativo completo para operaciones diarias</li>
-                        <li><strong>Motor de Reservas Online:</strong> Sistema de reservas integrado en el sitio web</li>
-                        <li><strong>Gestión de Habitaciones:</strong> Control de disponibilidad y estado en tiempo real</li>
-                        <li><strong>Check-in/Check-out Digital:</strong> Proceso optimizado para huéspedes</li>
-                        <li><strong>Sitio Web Corporativo:</strong> Presencia digital profesional y responsive</li>
-                        <li><strong>Gestión de Huéspedes:</strong> Base de datos integrada con historial</li>
-                        <li><strong>Reportes y Analytics:</strong> Métricas de ocupación e ingresos</li>
-                        <li><strong>Pasarela de Pagos:</strong> Integración segura para reservas online</li>
-                    </ul>
-                    
-                    <h3>Tecnologías Utilizadas</h3>
-                    <ul>
-                        <li><strong>Frontend:</strong> React.js para interfaces dinámicas y responsive</li>
-                        <li><strong>Backend:</strong> Node.js con Express para API robusta</li>
-                        <li><strong>Base de Datos:</strong> PostgreSQL para manejo de datos complejos</li>
-                        <li><strong>Pagos:</strong> Integración con Stripe para transacciones seguras</li>
-                        <li><strong>Hosting:</strong> Implementación en AWS con backups automáticos</li>
-                        <li><strong>Seguridad:</strong> Autenticación JWT y encriptación SSL</li>
-                    </ul>
-                    
-                    <h3>Resultados Obtenidos</h3>
-                    <ul>
-                        <li>📈 <strong>60% incremento</strong> en reservas online</li>
-                        <li>⚡ <strong>70% reducción</strong> en tiempo de gestión administrativa</li>
-                        <li>💰 <strong>Mejora significativa</strong> en control de ingresos</li>
-                        <li>📊 <strong>100% digitalización</strong> de procesos operativos</li>
-                        <li>😊 <strong>Mayor satisfacción</strong> del cliente con reservas online</li>
-                    </ul>
-                    
-                    <h3>Proceso de Desarrollo</h3>
-                    <p>El proyecto se desarrolló en fases iterativas: primero el sistema de gestión interno, luego el sitio web corporativo, y finalmente la integración completa del motor de reservas. Se implementó metodología ágil con entregas parciales para validación continua.</p>
-                    
-                    <p><strong>Duración:</strong> 4 meses | <strong>Equipo:</strong> 3 desarrolladores | <strong>Estado:</strong> En producción</p>
-                </div>
+                <h3>Características Principales</h3>
+                <ul>
+                    <li><strong>Sistema de Gestión Interno:</strong> Panel administrativo completo para operaciones diarias</li>
+                    <li><strong>Motor de Reservas Online:</strong> Sistema de reservas integrado en el sitio web</li>
+                    <li><strong>Gestión de Habitaciones:</strong> Control de disponibilidad y estado en tiempo real</li>
+                    <li><strong>Check-in/Check-out Digital:</strong> Proceso optimizado para huéspedes</li>
+                    <li><strong>Sitio Web Corporativo:</strong> Presencia digital profesional y responsive</li>
+                    <li><strong>Gestión de Huéspedes:</strong> Base de datos integrada con historial</li>
+                    <li><strong>Reportes y Analytics:</strong> Métricas de ocupación e ingresos</li>
+                    <li><strong>Pasarela de Pagos:</strong> Integración segura para reservas online</li>
+                </ul>
+                
+                <h3>Tecnologías Utilizadas</h3>
+                <ul>
+                    <li><strong>Frontend:</strong> React.js para interfaces dinámicas y responsive</li>
+                    <li><strong>Backend:</strong> Node.js con Express para API robusta</li>
+                    <li><strong>Base de Datos:</strong> PostgreSQL para manejo de datos complejos</li>
+                    <li><strong>Pagos:</strong> Integración con Stripe para transacciones seguras</li>
+                    <li><strong>Hosting:</strong> Implementación en AWS con backups automáticos</li>
+                    <li><strong>Seguridad:</strong> Autenticación JWT y encriptación SSL</li>
+                </ul>
+                
+                <h3>Resultados Obtenidos</h3>
+                <ul>
+                    <li>📈 <strong>60% incremento</strong> en reservas online</li>
+                    <li>⚡ <strong>70% reducción</strong> en tiempo de gestión administrativa</li>
+                    <li>💰 <strong>Mejora significativa</strong> en control de ingresos</li>
+                    <li>📊 <strong>100% digitalización</strong> de procesos operativos</li>
+                    <li>😊 <strong>Mayor satisfacción</strong> del cliente con reservas online</li>
+                </ul>
+                
+                <h3>Proceso de Desarrollo</h3>
+                <p>El proyecto se desarrolló en fases iterativas: primero el sistema de gestión interno, luego el sitio web corporativo, y finalmente la integración completa del motor de reservas. Se implementó metodología ágil con entregas parciales para validación continua.</p>
+                
+                <p><strong>Duración:</strong> 4 meses | <strong>Equipo:</strong> 3 desarrolladores | <strong>Estado:</strong> En producción</p>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Modal: Sistema de Gestión de Stock - MANTENIDO -->
-    <div id="stock-modal" class="modal" role="dialog" aria-labelledby="stock-modal-title" aria-modal="true">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="stock-modal-title">Sistema de Gestión de Stock</h2>
-                <button class="modal-close" onclick="closeModal('stock-modal')" aria-label="Cerrar modal">
-                    <i class="fas fa-times" aria-hidden="true"></i>
-                </button>
+<!-- Modal: Sistema de Gestión de Stock - MANTENIDO -->
+<div id="stock-modal" class="modal" role="dialog" aria-labelledby="stock-modal-title" aria-modal="true">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="stock-modal-title">Sistema de Gestión de Stock</h2>
+            <button class="modal-close" onclick="closeModal('stock-modal')" aria-label="Cerrar modal">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="project-images">
+                <div class="project-img">
+                    <img src="images/portfolio/stock/dashboard-principal.jpg" alt="Dashboard Principal - Panel de control con métricas y estado general del sistema">
+                    <div class="img-overlay">Dashboard Principal</div>
+                </div>
+                <div class="project-img">
+                    <img src="images/portfolio/stock/punto-de-venta.jpg" alt="Punto de Venta - Sistema de caja con búsqueda de productos y carrito de compras">
+                    <div class="img-overlay">Sistema de Punto de Venta</div>
+                </div>
+                <div class="project-img">
+                    <img src="images/portfolio/stock/gestion-inventario.jpg" alt="Gestión de Inventario - Lista de productos con stock, precios y categorías">
+                    <div class="img-overlay">Gestión de Inventario</div>
+                </div>
+                <div class="project-img">
+                    <img src="images/portfolio/stock/reportes-financieros.jpg" alt="Reportes Financieros - Análisis de ventas con gráficos y estadísticas">
+                    <div class="img-overlay">Reportes y Analytics</div>
+                </div>
             </div>
-            <div class="modal-body">
-                <div class="project-images">
-                    <div class="project-img">
-                        <img src="images/portfolio/stock/dashboard-principal.jpg" alt="Dashboard Principal - Panel de control con métricas y estado general del sistema">
-                        <div class="img-overlay">Dashboard Principal</div>
-                    </div>
-                    <div class="project-img">
-                        <img src="images/portfolio/stock/punto-de-venta.jpg" alt="Punto de Venta - Sistema de caja con búsqueda de productos y carrito de compras">
-                        <div class="img-overlay">Sistema de Punto de Venta</div>
-                    </div>
-                    <div class="project-img">
-                        <img src="images/portfolio/stock/gestion-inventario.jpg" alt="Gestión de Inventario - Lista de productos con stock, precios y categorías">
-                        <div class="img-overlay">Gestión de Inventario</div>
-                    </div>
-                    <div class="project-img">
-                        <img src="images/portfolio/stock/reportes-financieros.jpg" alt="Reportes Financieros - Análisis de ventas con gráficos y estadísticas">
-                        <div class="img-overlay">Reportes y Analytics</div>
-                    </div>
-                </div>
+            
+            <div class="project-details">
+                <h3>Descripción del Proyecto</h3>
+                <p>Sistema completo de gestión de inventario desarrollado para una cadena de supermercados. La solución incluye control de stock en tiempo real, gestión de proveedores, reportes automáticos y una interfaz móvil para escaneo de productos.</p>
                 
-                <div class="project-details">
-                    <h3>Descripción del Proyecto</h3>
-                    <p>Sistema completo de gestión de inventario desarrollado para una cadena de supermercados. La solución incluye control de stock en tiempo real, gestión de proveedores, reportes automáticos y una interfaz móvil para escaneo de productos.</p>
-                    
-                    <h3>Características Principales</h3>
-                    <ul>
-                        <li><strong>Dashboard Intuitivo:</strong> Panel de control centralizado con métricas en tiempo real y alertas automáticas</li>
-                        <li><strong>Punto de Venta Avanzado:</strong> Sistema POS completo con búsqueda rápida de productos y gestión de clientes</li>
-                        <li><strong>Control de Inventario:</strong> Seguimiento en tiempo real de todos los productos con alertas de stock bajo</li>
-                        <li><strong>Scanner de Códigos:</strong> App móvil para escaneo rápido de productos y actualización de inventario</li>
-                        <li><strong>Gestión de Proveedores:</strong> Base de datos completa con historial de compras y evaluaciones</li>
-                        <li><strong>Reportes Inteligentes:</strong> Analytics de ventas, rotación y tendencias con gráficos interactivos</li>
-                        <li><strong>Multi-sucursal:</strong> Gestión centralizada de múltiples ubicaciones desde un solo panel</li>
-                        <li><strong>API Integrada:</strong> Conexión con sistemas contables externos y pasarelas de pago</li>
-                    </ul>
-                    
-                    <h3>Tecnologías Utilizadas</h3>
-                    <ul>
-                        <li><strong>Frontend:</strong> Next.js con Server-Side Rendering para máximo rendimiento</li>
-                        <li><strong>Backend:</strong> Node.js con GraphQL API para consultas eficientes</li>
-                        <li><strong>Base de Datos:</strong> MongoDB con indexación optimizada para grandes volúmenes</li>
-                        <li><strong>App Móvil:</strong> React Native con scanner nativo de códigos de barras</li>
-                        <li><strong>Cloud:</strong> Google Cloud Platform con escalado automático</li>
-                        <li><strong>Analytics:</strong> Charts.js y D3.js para visualización de datos avanzada</li>
-                    </ul>
-                    
-                    <h3>Resultados Obtenidos</h3>
-                    <ul>
-                        <li>📦 <strong>90% reducción</strong> en errores de inventario</li>
-                        <li>⏱️ <strong>75% ahorro</strong> en tiempo de gestión de stock</li>
-                        <li>💸 <strong>25% reducción</strong> en pérdidas por vencimientos</li>
-                        <li>📱 <strong>100% adopción</strong> de la app móvil por empleados</li>
-                        <li>📈 <strong>40% mejora</strong> en eficiencia operativa</li>
-                    </ul>
-                    
-                    <p><strong>Duración:</strong> 3 meses | <strong>Equipo:</strong> 2 desarrolladores fullstack | <strong>Estado:</strong> En producción</p>
-                </div>
+                <h3>Características Principales</h3>
+                <ul>
+                    <li><strong>Dashboard Intuitivo:</strong> Panel de control centralizado con métricas en tiempo real y alertas automáticas</li>
+                    <li><strong>Punto de Venta Avanzado:</strong> Sistema POS completo con búsqueda rápida de productos y gestión de clientes</li>
+                    <li><strong>Control de Inventario:</strong> Seguimiento en tiempo real de todos los productos con alertas de stock bajo</li>
+                    <li><strong>Scanner de Códigos:</strong> App móvil para escaneo rápido de productos y actualización de inventario</li>
+                    <li><strong>Gestión de Proveedores:</strong> Base de datos completa con historial de compras y evaluaciones</li>
+                    <li><strong>Reportes Inteligentes:</strong> Analytics de ventas, rotación y tendencias con gráficos interactivos</li>
+                    <li><strong>Multi-sucursal:</strong> Gestión centralizada de múltiples ubicaciones desde un solo panel</li>
+                    <li><strong>API Integrada:</strong> Conexión con sistemas contables externos y pasarelas de pago</li>
+                </ul>
+                
+                <h3>Tecnologías Utilizadas</h3>
+                <ul>
+                    <li><strong>Frontend:</strong> Next.js con Server-Side Rendering para máximo rendimiento</li>
+                    <li><strong>Backend:</strong> Node.js con GraphQL API para consultas eficientes</li>
+                    <li><strong>Base de Datos:</strong> MongoDB con indexación optimizada para grandes volúmenes</li>
+                    <li><strong>App Móvil:</strong> React Native con scanner nativo de códigos de barras</li>
+                    <li><strong>Cloud:</strong> Google Cloud Platform con escalado automático</li>
+                    <li><strong>Analytics:</strong> Charts.js y D3.js para visualización de datos avanzada</li>
+                </ul>
+                
+                <h3>Resultados Obtenidos</h3>
+                <ul>
+                    <li>📦 <strong>90% reducción</strong> en errores de inventario</li>
+                    <li>⏱️ <strong>75% ahorro</strong> en tiempo de gestión de stock</li>
+                    <li>💸 <strong>25% reducción</strong> en pérdidas por vencimientos</li>
+                    <li>📱 <strong>100% adopción</strong> de la app móvil por empleados</li>
+                    <li>📈 <strong>40% mejora</strong> en eficiencia operativa</li>
+                </ul>
+                
+                <p><strong>Duración:</strong> 3 meses | <strong>Equipo:</strong> 2 desarrolladores fullstack | <strong>Estado:</strong> En producción</p>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Modal: E-commerce - MARCADO COMO CASO DE ESTUDIO -->
-    <div id="ecommerce-modal" class="modal" role="dialog" aria-labelledby="ecommerce-modal-title" aria-modal="true">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="ecommerce-modal-title">E-commerce de Moda - Caso de Estudio</h2>
-                <button class="modal-close" onclick="closeModal('ecommerce-modal')" aria-label="Cerrar modal">
-                    <i class="fas fa-times" aria-hidden="true"></i>
-                </button>
+<!-- Modal: E-commerce - MARCADO COMO CASO DE ESTUDIO -->
+<div id="ecommerce-modal" class="modal" role="dialog" aria-labelledby="ecommerce-modal-title" aria-modal="true">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="ecommerce-modal-title">E-commerce de Moda - Caso de Estudio</h2>
+            <button class="modal-close" onclick="closeModal('ecommerce-modal')" aria-label="Cerrar modal">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="project-images">
+                <div class="project-img">
+                    <img src="images/portfolio/ecommerce/catalogo-productos.jpg" alt="Catálogo de productos e-commerce">
+                    <div class="img-overlay">Catálogo de Productos</div>
+                </div>
+                <div class="project-img">
+                    <img src="images/portfolio/ecommerce/carrito-compras.jpg" alt="Carrito de compras e-commerce">
+                    <div class="img-overlay">Carrito de Compras</div>
+                </div>
+                <div class="project-img">
+                    <img src="images/portfolio/ecommerce/panel-admin.jpg" alt="Panel administrativo e-commerce">
+                    <div class="img-overlay">Panel Administrativo</div>
+                </div>
+                <div class="project-img">
+                    <img src="images/portfolio/ecommerce/proceso-pago.jpg" alt="Proceso de pago e-commerce">
+                    <div class="img-overlay">Proceso de Pago</div>
+                </div>
             </div>
-            <div class="modal-body">
-                <div class="project-images">
-                    <div class="project-img">Catálogo de Productos</div>
-                    <div class="project-img">Carrito de Compras</div>
-                    <div class="project-img">Panel Administrativo</div>
-                    <div class="project-img">Proceso de Pago</div>
-                </div>
+            
+            <div class="project-details">
+                <h3>Sobre este Caso de Estudio</h3>
+                <p>Este es un proyecto conceptual que demuestra nuestras capacidades en desarrollo de e-commerce. Representa el tipo de solución que desarrollamos para tiendas online especializadas, basado en las mejores prácticas del sector.</p>
                 
-                <div class="project-details">
-                    <h3>Sobre este Caso de Estudio</h3>
-                    <p>Este es un proyecto conceptual que demuestra nuestras capacidades en desarrollo de e-commerce. Representa el tipo de solución que desarrollamos para tiendas online especializadas, basado en las mejores prácticas del sector.</p>
-                    
-                    <h3>Características que Implementaríamos</h3>
-                    <ul>
-                        <li><strong>Catálogo Avanzado:</strong> Filtros inteligentes por categorías, tallas, colores y precios</li>
-                        <li><strong>Carrito Inteligente:</strong> Guardado automático y recomendaciones personalizadas</li>
-                        <li><strong>Múltiples Métodos de Pago:</strong> Tarjetas, transferencias y cuotas</li>
-                        <li><strong>Gestión de Stock:</strong> Control automático de inventario y variantes</li>
-                        <li><strong>Sistema de Envíos:</strong> Integración con correos y cálculo automático</li>
-                        <li><strong>Panel Administrativo:</strong> Dashboard completo para gestión</li>
-                        <li><strong>SEO Optimizado:</strong> Estructura optimizada para buscadores</li>
-                        <li><strong>Responsive Design:</strong> Perfecta experiencia móvil</li>
-                    </ul>
-                    
-                    <h3>Stack Tecnológico Propuesto</h3>
-                    <ul>
-                        <li><strong>Frontend:</strong> React.js con componentes reutilizables</li>
-                        <li><strong>Backend:</strong> Express.js con arquitectura escalable</li>
-                        <li><strong>Base de Datos:</strong> MySQL para relaciones complejas</li>
-                        <li><strong>Pagos:</strong> Integración con múltiples procesadores</li>
-                        <li><strong>Hosting:</strong> Optimizado para e-commerce</li>
-                    </ul>
-                    
-                    <h3>Funcionalidades Destacadas</h3>
-                    <p>Este tipo de proyecto incluiría un sistema de recomendaciones inteligente, configurador de outfits, programa de fidelización, y análisis detallado del comportamiento del usuario para optimizar conversiones.</p>
-                    
-                    <p><strong>¿Interesado en un proyecto similar?</strong> Contactanos para discutir tu visión específica.</p>
-                </div>
+                <h3>Características que Implementaríamos</h3>
+                <ul>
+                    <li><strong>Catálogo Avanzado:</strong> Filtros inteligentes por categorías, tallas, colores y precios</li>
+                    <li><strong>Carrito Inteligente:</strong> Guardado automático y recomendaciones personalizadas</li>
+                    <li><strong>Múltiples Métodos de Pago:</strong> Tarjetas, transferencias y cuotas</li>
+                    <li><strong>Gestión de Stock:</strong> Control automático de inventario y variantes</li>
+                    <li><strong>Sistema de Envíos:</strong> Integración con correos y cálculo automático</li>
+                    <li><strong>Panel Administrativo:</strong> Dashboard completo para gestión</li>
+                    <li><strong>SEO Optimizado:</strong> Estructura optimizada para buscadores</li>
+                    <li><strong>Responsive Design:</strong> Perfecta experiencia móvil</li>
+                </ul>
+                
+                <h3>Stack Tecnológico Propuesto</h3>
+                <ul>
+                    <li><strong>Frontend:</strong> React.js con componentes reutilizables</li>
+                    <li><strong>Backend:</strong> Express.js con arquitectura escalable</li>
+                    <li><strong>Base de Datos:</strong> MySQL para relaciones complejas</li>
+                    <li><strong>Pagos:</strong> Integración con múltiples procesadores</li>
+                    <li><strong>Hosting:</strong> Optimizado para e-commerce</li>
+                </ul>
+                
+                <h3>Funcionalidades Destacadas</h3>
+                <p>Este tipo de proyecto incluiría un sistema de recomendaciones inteligente, configurador de outfits, programa de fidelización, y análisis detallado del comportamiento del usuario para optimizar conversiones.</p>
+                
+                <p><strong>¿Interesado en un proyecto similar?</strong> Contactanos para discutir tu visión específica.</p>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Modal: App Móvil - MARCADO COMO CASO DE ESTUDIO -->
-    <div id="mobile-app-modal" class="modal" role="dialog" aria-labelledby="mobile-app-modal-title" aria-modal="true">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="mobile-app-modal-title">App de Delivery - Prototipo Conceptual</h2>
-                <button class="modal-close" onclick="closeModal('mobile-app-modal')" aria-label="Cerrar modal">
-                    <i class="fas fa-times" aria-hidden="true"></i>
-                </button>
+<!-- Modal: App Móvil - MARCADO COMO CASO DE ESTUDIO -->
+<div id="mobile-app-modal" class="modal" role="dialog" aria-labelledby="mobile-app-modal-title" aria-modal="true">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="mobile-app-modal-title">App de Delivery - Prototipo Conceptual</h2>
+            <button class="modal-close" onclick="closeModal('mobile-app-modal')" aria-label="Cerrar modal">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="project-images">
+                <div class="project-img">
+                    <img src="images/portfolio/delivery/pantalla-principal.jpg" alt="Pantalla principal de app delivery">
+                    <div class="img-overlay">Pantalla Principal</div>
+                </div>
+                <div class="project-img">
+                    <img src="images/portfolio/delivery/tracking-tiempo-real.jpg" alt="Tracking en tiempo real delivery">
+                    <div class="img-overlay">Tracking en Tiempo Real</div>
+                </div>
+                <div class="project-img">
+                    <img src="images/portfolio/delivery/app-repartidor.jpg" alt="App del repartidor">
+                    <div class="img-overlay">App del Repartidor</div>
+                </div>
+                <div class="project-img">
+                    <img src="images/portfolio/delivery/panel-admin.jpg" alt="Panel administrativo delivery">
+                    <div class="img-overlay">Panel Administrativo</div>
+                </div>
             </div>
-            <div class="modal-body">
-                <div class="project-images">
-                    <div class="project-img">Pantalla Principal</div>
-                    <div class="project-img">Tracking en Tiempo Real</div>
-                    <div class="project-img">App del Repartidor</div>
-                    <div class="project-img">Panel Administrativo</div>
-                </div>
+            
+            <div class="project-details">
+                <h3>Prototipo de App de Delivery</h3>
+                <p>Este es un ejemplo conceptual de aplicación móvil de delivery que showcasea nuestra experiencia en desarrollo móvil multiplataforma. Representa el tipo de ecosistema digital complejo que podemos desarrollar.</p>
                 
-                <div class="project-details">
-                    <h3>Prototipo de App de Delivery</h3>
-                    <p>Este es un ejemplo conceptual de aplicación móvil de delivery que showcasea nuestra experiencia en desarrollo móvil multiplataforma. Representa el tipo de ecosistema digital complejo que podemos desarrollar.</p>
-                    
-                    <h3>Arquitectura Propuesta</h3>
-                    <ul>
-                        <li><strong>App Cliente:</strong> Búsqueda de restaurantes, pedidos y seguimiento</li>
-                        <li><strong>App Repartidor:</strong> Gestión de entregas y optimización de rutas</li>
-                        <li><strong>App Restaurante:</strong> Gestión de menú y tiempos de preparación</li>
-                        <li><strong>Panel Web Admin:</strong> Control total del ecosistema</li>
-                        <li><strong>Geolocalización:</strong> Tracking preciso GPS</li>
-                        <li><strong>Pagos Integrados:</strong> Múltiples métodos seguros</li>
-                        <li><strong>Notificaciones:</strong> Updates en tiempo real</li>
-                        <li><strong>Sistema de Rating:</strong> Calificaciones bidireccionales</li>
-                    </ul>
-                    
-                    <h3>Tecnologías que Utilizaríamos</h3>
-                    <ul>
-                        <li><strong>Mobile:</strong> React Native para iOS y Android</li>
-                        <li><strong>Backend:</strong> Node.js con Socket.io para tiempo real</li>
-                        <li><strong>Base de Datos:</strong> Firebase para sincronización</li>
-                        <li><strong>Mapas:</strong> Google Maps API con rutas optimizadas</li>
-                        <li><strong>Pagos:</strong> Stripe con soporte internacional</li>
-                        <li><strong>Push Notifications:</strong> Firebase Cloud Messaging</li>
-                    </ul>
-                    
-                    <h3>Innovaciones Técnicas</h3>
-                    <p>Incluiría algoritmos predictivos para tiempos de entrega, sistema de cache offline, optimización de rutas con IA, y analytics avanzados para métricas de negocio.</p>
-                    
-                    <p><strong>¿Tienes una idea similar?</strong> Podemos ayudarte a convertirla en realidad.</p>
-                </div>
+                <h3>Arquitectura Propuesta</h3>
+                <ul>
+                    <li><strong>App Cliente:</strong> Búsqueda de restaurantes, pedidos y seguimiento</li>
+                    <li><strong>App Repartidor:</strong> Gestión de entregas y optimización de rutas</li>
+                    <li><strong>App Restaurante:</strong> Gestión de menú y tiempos de preparación</li>
+                    <li><strong>Panel Web Admin:</strong> Control total del ecosistema</li>
+                    <li><strong>Geolocalización:</strong> Tracking preciso GPS</li>
+                    <li><strong>Pagos Integrados:</strong> Múltiples métodos seguros</li>
+                    <li><strong>Notificaciones:</strong> Updates en tiempo real</li>
+                    <li><strong>Sistema de Rating:</strong> Calificaciones bidireccionales</li>
+                </ul>
+                
+                <h3>Tecnologías que Utilizaríamos</h3>
+                <ul>
+                    <li><strong>Mobile:</strong> React Native para iOS y Android</li>
+                    <li><strong>Backend:</strong> Node.js con Socket.io para tiempo real</li>
+                    <li><strong>Base de Datos:</strong> Firebase para sincronización</li>
+                    <li><strong>Mapas:</strong> Google Maps API con rutas optimizadas</li>
+                    <li><strong>Pagos:</strong> Stripe con soporte internacional</li>
+                    <li><strong>Push Notifications:</strong> Firebase Cloud Messaging</li>
+                </ul>
+                
+                <h3>Innovaciones Técnicas</h3>
+                <p>Incluiría algoritmos predictivos para tiempos de entrega, sistema de cache offline, optimización de rutas con IA, y analytics avanzados para métricas de negocio.</p>
+                
+                <p><strong>¿Tienes una idea similar?</strong> Podemos ayudarte a convertirla en realidad.</p>
             </div>
         </div>
     </div>
-    <!-- Modal: Turnos Médicos (ficticio) -->
+</div>
+
+<!-- Modal: Turnos Médicos (ficticio) -->
 <div id="turnos-modal" class="modal" role="dialog" aria-labelledby="turnos-modal-title" aria-modal="true">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h2 id="turnos-modal-title">Turnos Médicos</h2>
-      <button class="modal-close" onclick="closeModal('turnos-modal')" aria-label="Cerrar modal">
-        <i class="fas fa-times" aria-hidden="true"></i>
-      </button>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="turnos-modal-title">Turnos Médicos</h2>
+            <button class="modal-close" onclick="closeModal('turnos-modal')" aria-label="Cerrar modal">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="project-images">
+                <div class="project-img">
+                    <img src="images/portfolio/turnos/agenda-consultorios.jpg" alt="Agenda de Consultorios">
+                    <div class="img-overlay">Agenda de Consultorios</div>
+                </div>
+                <div class="project-img">
+                    <img src="images/portfolio/turnos/recordatorios-whatsapp.jpg" alt="Recordatorios por WhatsApp">
+                    <div class="img-overlay">Recordatorios por WhatsApp</div>
+                </div>
+                <div class="project-img">
+                    <img src="images/portfolio/turnos/panel-profesionales.jpg" alt="Panel de Profesionales">
+                    <div class="img-overlay">Panel de Profesionales</div>
+                </div>
+                <div class="project-img">
+                    <img src="images/portfolio/turnos/gestion-pacientes.jpg" alt="Gestión de Pacientes">
+                    <div class="img-overlay">Gestión de Pacientes</div>
+                </div>
+            </div>
+            <div class="project-details">
+                <h3>Descripción</h3>
+                <p>Plataforma de turnos con múltiples sedes, profesionales y salas, recordatorios automáticos y panel web.</p>
+                <h3>Stack</h3>
+                <ul>
+                    <li>Next.js + Prisma</li>
+                    <li>PostgreSQL</li>
+                    <li>Twilio WhatsApp</li>
+                    <li>Auth con JWT</li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <div class="modal-body">
-      <div class="project-images">
-        <div class="project-img">Agenda de Consultorios</div>
-        <div class="project-img">Recordatorios por WhatsApp</div>
-        <div class="project-img">Panel de Profesionales</div>
-        <div class="project-img">Gestión de Pacientes</div>
-      </div>
-      <div class="project-details">
-        <h3>Descripción</h3>
-        <p>Plataforma de turnos con múltiples sedes, profesionales y salas, recordatorios automáticos y panel web.</p>
-        <h3>Stack</h3>
-        <ul>
-          <li>Next.js + Prisma</li>
-          <li>PostgreSQL</li>
-          <li>Twilio WhatsApp</li>
-          <li>Auth con JWT</li>
-        </ul>
-      </div>
-    </div>
-  </div>
 </div>
 
 <!-- Modal: Gestión de Taller (ficticio) -->
 <div id="taller-modal" class="modal" role="dialog" aria-labelledby="taller-modal-title" aria-modal="true">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h2 id="taller-modal-title">Gestión de Taller</h2>
-      <button class="modal-close" onclick="closeModal('taller-modal')" aria-label="Cerrar modal">
-        <i class="fas fa-times" aria-hidden="true"></i>
-      </button>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="taller-modal-title">Gestión de Taller</h2>
+            <button class="modal-close" onclick="closeModal('taller-modal')" aria-label="Cerrar modal">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="project-images">
+                <div class="project-img">
+                    <img src="images/portfolio/taller/ordenes-trabajo.jpg" alt="Órdenes de Trabajo">
+                    <div class="img-overlay">Órdenes de Trabajo</div>
+                </div>
+                <div class="project-img">
+                    <img src="images/portfolio/taller/stock-repuestos.jpg" alt="Stock de Repuestos">
+                    <div class="img-overlay">Stock de Repuestos</div>
+                </div>
+                <div class="project-img">
+                    <img src="images/portfolio/taller/caja-presupuestos.jpg" alt="Caja y Presupuestos">
+                    <div class="img-overlay">Caja y Presupuestos</div>
+                </div>
+                <div class="project-img">
+                    <img src="images/portfolio/taller/mensajeria-clientes.jpg" alt="Mensajería con Clientes">
+                    <div class="img-overlay">Mensajería con Clientes</div>
+                </div>
+            </div>
+            <div class="project-details">
+                <h3>Descripción</h3>
+                <p>Sistema de escritorio y web para talleres mecánicos: OT, repuestos, caja diaria y comunicación.</p>
+                <h3>Stack</h3>
+                <ul>
+                    <li>React + Electron</li>
+                    <li>Node.js API</li>
+                    <li>SQLite</li>
+                    <li>Integración con WhatsApp</li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <div class="modal-body">
-      <div class="project-images">
-        <div class="project-img">Órdenes de Trabajo</div>
-        <div class="project-img">Stock de Repuestos</div>
-        <div class="project-img">Caja y Presupuestos</div>
-        <div class="project-img">Mensajería con Clientes</div>
-      </div>
-      <div class="project-details">
-        <h3>Descripción</h3>
-        <p>Sistema de escritorio y web para talleres mecánicos: OT, repuestos, caja diaria y comunicación.</p>
-        <h3>Stack</h3>
-        <ul>
-          <li>React + Electron</li>
-          <li>Node.js API</li>
-          <li>SQLite</li>
-          <li>Integración con WhatsApp</li>
-        </ul>
-      </div>
-    </div>
-  </div>
 </div>
 
     <!-- Scripts -->
     <script src="js/scripts.js"></script>
-    <script src="js/chatbot.js"></script>
     
     <!-- Google Analytics (opcional) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
@@ -968,5 +988,206 @@
         gtag('js', new Date());
         gtag('config', 'GA_MEASUREMENT_ID');
     </script>
+
+<!-- Lightbox global (una sola instancia) -->
+<div id="lightbox" class="lightbox" aria-hidden="true" style="display:none;">
+    <div class="lightbox-content">
+        <button class="lightbox-close" aria-label="Cerrar imagen ampliada">×</button>
+        <button class="lightbox-nav lightbox-prev" aria-label="Imagen anterior">‹</button>
+        <button class="lightbox-nav lightbox-next" aria-label="Siguiente imagen">›</button>
+        <img id="lightbox-image" class="lightbox-image" src="" alt="">
+        <div class="lightbox-counter" id="lightbox-counter"></div>
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+</div>
+
+<script>
+(() => {
+  'use strict';
+
+  let currentImageIndex = 0;
+  let currentImageGroup = '';
+  const imageGroups = {};
+
+  function initializeImageGroups() {
+    document.querySelectorAll('.modal').forEach(modal => {
+      const modalId = modal.id;
+      if (!modalId) return;
+      const groupName = modalId.replace('-modal', '-images');
+      const images = modal.querySelectorAll('.project-img img');
+      if (!images.length) return;
+      imageGroups[groupName] = Array.from(images).map(img => ({
+        src: img.getAttribute('src'),
+        alt: img.getAttribute('alt') || '',
+        caption: img.parentElement.querySelector('.img-overlay')?.textContent?.trim() || ''
+      }));
+    });
+  }
+
+  function bindProjectImageClicks(modal) {
+    const modalId = modal.id;
+    if (!modalId) return;
+    const groupName = modalId.replace('-modal', '-images');
+    const cards = modal.querySelectorAll('.project-img');
+    cards.forEach((card, index) => {
+      if (card.dataset.lbBound === '1') return;
+      card.addEventListener('click', () => openLightbox(index, groupName));
+      card.dataset.lbBound = '1';
+    });
+  }
+
+  function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (!modal) return;
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    initializeImageGroups();
+    bindProjectImageClicks(modal);
+  }
+
+  function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (!modal) return;
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+
+  function openLightbox(imageIndex, groupName) {
+    if (!imageGroups[groupName] || !imageGroups[groupName][imageIndex]) return;
+    currentImageIndex = imageIndex;
+    currentImageGroup = groupName;
+
+    const lb = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-image');
+    const counter = document.getElementById('lightbox-counter');
+    const caption = document.getElementById('lightbox-caption');
+    const data = imageGroups[groupName][imageIndex];
+
+    img.src = data.src;
+    img.alt = data.alt;
+    counter.textContent = (imageIndex + 1) + ' de ' + imageGroups[groupName].length;
+    caption.textContent = data.caption;
+
+    lb.style.display = 'flex';
+    requestAnimationFrame(() => lb.classList.add('active'));
+    document.body.style.overflow = 'hidden';
+
+    updateNavigationButtons();
+  }
+
+  function closeLightboxInternal() {
+    const lb = document.getElementById('lightbox');
+    lb.classList.remove('active');
+    setTimeout(() => {
+      lb.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }, 300);
+  }
+
+  function nextImage() {
+    const list = imageGroups[currentImageGroup];
+    if (!list || !list.length) return;
+    currentImageIndex = (currentImageIndex + 1) % list.length;
+    updateLightboxImage();
+  }
+
+  function previousImage() {
+    const list = imageGroups[currentImageGroup];
+    if (!list || !list.length) return;
+    currentImageIndex = (currentImageIndex - 1 + list.length) % list.length;
+    updateLightboxImage();
+  }
+
+  function updateLightboxImage() {
+    const img = document.getElementById('lightbox-image');
+    const counter = document.getElementById('lightbox-counter');
+    const caption = document.getElementById('lightbox-caption');
+    const list = imageGroups[currentImageGroup];
+    const data = list[currentImageIndex];
+
+    img.style.opacity = '0';
+    setTimeout(() => {
+      img.src = data.src;
+      img.alt = data.alt;
+      counter.textContent = (currentImageIndex + 1) + ' de ' + list.length;
+      caption.textContent = data.caption;
+      img.style.opacity = '1';
+    }, 150);
+
+    updateNavigationButtons();
+  }
+
+  function updateNavigationButtons() {
+    const prevBtn = document.querySelector('.lightbox-prev');
+    const nextBtn = document.querySelector('.lightbox-next');
+    const list = imageGroups[currentImageGroup] || [];
+    const show = list.length > 1;
+    prevBtn.style.display = show ? 'flex' : 'none';
+    nextBtn.style.display = show ? 'flex' : 'none';
+  }
+
+  function bindBackdropCloseForModals() {
+    document.querySelectorAll('.modal').forEach(modal => {
+      modal.addEventListener('click', (ev) => {
+        if (ev.target === modal) {
+          closeModal(modal.id);
+        }
+      });
+    });
+  }
+
+  function bindLightboxEvents() {
+    const lb = document.getElementById('lightbox');
+    const closeBtn = lb.querySelector('.lightbox-close');
+    const prevBtn  = lb.querySelector('.lightbox-prev');
+    const nextBtn  = lb.querySelector('.lightbox-next');
+
+    lb.addEventListener('click', (ev) => {
+      const t = ev.target;
+      const isContent = t.classList.contains('lightbox-image')
+                     || t.classList.contains('lightbox-content')
+                     || t.classList.contains('lightbox-nav')
+                     || t.classList.contains('lightbox-counter')
+                     || t.classList.contains('lightbox-caption')
+                     || t.classList.contains('lightbox-close');
+      if (!isContent) closeLightboxInternal();
+    });
+
+    closeBtn.addEventListener('click', closeLightboxInternal);
+    prevBtn.addEventListener('click', previousImage);
+    nextBtn.addEventListener('click', nextImage);
+
+    document.addEventListener('keydown', (ev) => {
+      const isOpen = lb.classList.contains('active');
+      if (!isOpen) return;
+      if (ev.key === 'Escape')      closeLightboxInternal();
+      if (ev.key === 'ArrowLeft')   previousImage();
+      if (ev.key === 'ArrowRight')  nextImage();
+    });
+
+    // Touch swipe
+    let x0 = 0, x1 = 0;
+    lb.addEventListener('touchstart', e => { x0 = e.changedTouches[0].screenX; }, {passive: true});
+    lb.addEventListener('touchend',   e => {
+      x1 = e.changedTouches[0].screenX;
+      const d = x0 - x1;
+      if (Math.abs(d) > 50) (d > 0 ? nextImage() : previousImage());
+    }, {passive: true});
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    initializeImageGroups();
+    bindBackdropCloseForModals();
+    bindLightboxEvents();
+  });
+
+  // Exponer funciones globales
+  window.openModal = openModal;
+  window.closeModal = closeModal;
+  window.openLightbox = openLightbox;
+  window.nextImage = nextImage;
+  window.previousImage = previousImage;
+})();
+</script>
 </body>
 </html>

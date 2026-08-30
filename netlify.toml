@@ -27,9 +27,3 @@
   for = "/images/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000"
-
-# Redirects para errores 404
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 404

@@ -617,15 +617,14 @@ KodoLabs.Forms = {
             this.showLoading(true);
             
             try {
-                // Simular envío de formulario
-                await this.simulateFormSubmission(formObject);
-                
+                await this.submitForm(formObject);
+
                 this.showMessage('¡Mensaje enviado correctamente! Te contactaremos pronto.', 'success');
                 contactForm.reset();
                 KodoLabs.Analytics.trackEvent('contact', 'form_submit_success');
-                
+
             } catch (error) {
-                this.showMessage('Error al enviar el mensaje. Inténtalo nuevamente.', 'error');
+                this.showMessage('No pudimos enviar tu mensaje. Probá de nuevo o escribinos a info@kodo-labs.com.', 'error');
                 KodoLabs.Analytics.trackEvent('contact', 'form_submit_error');
             } finally {
                 this.showLoading(false);
@@ -652,14 +651,19 @@ KodoLabs.Forms = {
         return true;
     },
     
-    async simulateFormSubmission(formData) {
-        // Simular delay de red
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                console.log('Datos del formulario:', formData);
-                resolve();
-            }, 2000);
+    // Envía el formulario a Netlify Forms.
+    // Netlify detecta el form por data-netlify="true" en el HTML publicado y
+    // recibe los envíos como POST url-encoded a la raíz del sitio.
+    async submitForm(formData) {
+        const response = await fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(formData).toString()
         });
+
+        if (!response.ok) {
+            throw new Error(`Netlify Forms respondió ${response.status}`);
+        }
     },
     
     showLoading(isLoading) {

@@ -62,6 +62,65 @@
     --z-toast: 1080;
 }
 
+
+/* ==========================================================================
+   Utilidades de accesibilidad
+   ========================================================================== */
+
+/* Oculta visualmente pero deja el texto disponible para lectores de pantalla. */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Campo trampa anti-spam del formulario: oculto para personas, visible para bots. */
+.hidden-field {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* Enlace de salto: fuera de pantalla hasta que recibe foco por teclado. */
+.skip-link {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -120%);
+    z-index: var(--z-toast);
+    padding: 0.75rem 1.5rem;
+    background: var(--primary-green);
+    color: #04140a;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+    border-radius: 0 0 var(--border-radius-small) var(--border-radius-small);
+    box-shadow: var(--shadow-large);
+    transition: transform var(--transition-fast);
+}
+
+.skip-link:focus {
+    transform: translate(-50%, 0);
+    outline: 3px solid var(--accent-cyan);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .skip-link {
+        transition: none;
+    }
+}
+
 /* Reset ultra mejorado */
 *,
 *::before,

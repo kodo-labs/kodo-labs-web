@@ -488,7 +488,17 @@
                     <div class="contact-form">
                         <h3>Envíanos un mensaje</h3>
                         
-                        <form id="contact-form" novalidate aria-label="Formulario de contacto">
+                        <form id="contact-form"
+                              name="contacto"
+                              method="POST"
+                              data-netlify="true"
+                              netlify-honeypot="bot-field"
+                              novalidate
+                              aria-label="Formulario de contacto">
+                            <input type="hidden" name="form-name" value="contacto">
+                            <p class="hidden-field" aria-hidden="true">
+                                <label>No completes este campo: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+                            </p>
                             <div class="form-group">
                                 <label for="name">
                                     Nombre <span aria-label="campo requerido">*</span>
@@ -498,7 +508,7 @@
                                        name="name" 
                                        required 
                                        aria-describedby="name-error"
-                                       autocomplete="given-name"
+                                       autocomplete="name"
                                        placeholder="Tu nombre completo">
                                 <div id="name-error" class="error-text" role="alert"></div>
                             </div>

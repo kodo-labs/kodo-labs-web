@@ -834,7 +834,7 @@ a.logo:focus {
     margin-bottom: var(--space-xs);
     display: block;
     transition: var(--transition);
-    background: var(--gradient-primary);
+    background: var(--gradient-green-text);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -1000,7 +1000,7 @@ a.logo:focus {
 .service-icon {
     font-size: 4rem;
     margin-bottom: var(--space-md);
-    background: var(--gradient-primary);
+    background: var(--gradient-green-text);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -1272,7 +1272,7 @@ a.logo:focus {
     border-radius: 25px;
     font-size: 0.85rem;
     font-weight: var(--font-weight-medium);
-    border: 1px solid rgba(0, 200, 81, 0.25);
+    border: 1px solid var(--border-subtle);
     backdrop-filter: blur(10px);
     transition: var(--transition);
     line-height: 1.2;
@@ -1608,7 +1608,7 @@ a.logo:focus {
     font-weight: var(--font-weight-black);
     line-height: 1.2;
     letter-spacing: -0.01em;
-    background: var(--gradient-primary);
+    background: var(--gradient-green-text);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -1781,7 +1781,7 @@ a.logo:focus {
 .stat-number {
     font-size: 3.5rem;
     font-weight: var(--font-weight-black);
-    background: var(--gradient-primary);
+    background: var(--gradient-green-text);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -1845,7 +1845,7 @@ a.logo:focus {
     font-weight: var(--font-weight-bold);
     line-height: 1.3;
     letter-spacing: -0.01em;
-    background: var(--gradient-primary);
+    background: var(--gradient-green-text);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -2003,7 +2003,7 @@ a.logo:focus {
 .form-group select {
     width: 100%;
     padding: 16px 20px;
-    border: 2px solid rgba(0, 200, 81, 0.25);
+    border: 2px solid var(--border-strong);
     border-radius: var(--border-radius-small);
     font-size: 1rem;
     font-family: var(--font-primary);
@@ -2220,7 +2220,7 @@ footer::before {
     font-size: 1.4rem;
     font-weight: var(--font-weight-bold);
     letter-spacing: -0.01em;
-    background: var(--gradient-primary);
+    background: var(--gradient-green-text);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -3176,7 +3176,7 @@ option {
 
 /* Efectos especiales para el contenido */
 .project-details h3 {
-    background: linear-gradient(135deg, var(--primary-green), var(--accent-cyan));
+    background: var(--gradient-green-text);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -3463,16 +3463,17 @@ option {
     line-height: 1.45;
 }
 
+/* El espacio del mensaje se reserva siempre. Sin esto, al aparecer el error
+   el contenido de abajo se desplazaba: el boton "Enviar Mensaje" bajaba 45 px
+   (el 79 % de su propia altura) en el mismo instante en que la persona hacia
+   clic, y el clic caia donde el boton ya no estaba. */
 .error-text {
     margin-top: 6px;
+    min-height: 1.25rem;
     color: #C0392B;
     font-size: 0.85rem;
     font-weight: var(--font-weight-medium);
     line-height: 1.45;
-}
-
-.error-text:empty {
-    display: none;
 }
 
 .form-group input[aria-invalid="true"],
@@ -3483,7 +3484,10 @@ option {
 /* 13 · Los enlaces del pie median 29 px de alto, por debajo del minimo
    tactil de 44 px, y estaban muy juntos entre si. */
 .footer-section > a {
-    display: inline-flex;
+    /* display: flex y no inline-flex: con inline-flex los enlaces fluian en
+       linea y se leian como un parrafo corrido ("Desarrollo Web Aplicaciones
+       Moviles"), sin poder distinguir donde terminaba uno y empezaba el otro. */
+    display: flex;
     align-items: center;
     min-height: 44px;
     padding: 2px 0;
@@ -3520,4 +3524,32 @@ option {
     .nav-links .nav-cta:focus-visible {
         color: var(--text-on-accent);
     }
+}
+
+/* En movil el pie se centra, pero el subrayado de cada titulo seguia
+   anclado a la izquierda. */
+@media (max-width: 768px) {
+    .footer-section h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .footer-section > a {
+        justify-content: center;
+    }
+
+    /* El boton de volver arriba tapaba texto de ayuda y mensajes de error
+       del formulario. Se achica y se aparta un poco mas del contenido. */
+    .scroll-to-top {
+        width: 46px;
+        height: 46px;
+        right: 12px;
+        bottom: 12px;
+    }
+}
+
+/* El CTA del menu movil quedaba alineado a la izquierda mientras el resto
+   de los enlaces estaban centrados. */
+.nav-cta-item {
+    text-align: center;
 }

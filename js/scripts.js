@@ -650,6 +650,10 @@ KodoLabs.Forms = {
         if (input) {
             if (mensaje) input.setAttribute('aria-invalid', 'true');
             else input.removeAttribute('aria-invalid');
+            // La clase 'error' es la que hace que el campo se revalide mientras
+            // la persona escribe. Sin marcarla aca, un error puesto por el envio
+            // se quedaba fijo aunque el campo ya estuviera corregido.
+            input.classList.toggle('error', !!mensaje);
         }
     },
 
@@ -657,34 +661,46 @@ KodoLabs.Forms = {
         ['name', 'email', 'message'].forEach(c => this.setFieldError(c, ''));
     },
 
+    // Reglas de validacion en un solo lugar: las usa tanto el envio del
+    // formulario como la validacion campo por campo al salir de cada uno.
+    fieldError(campo, valor) {
+        const v = (valor || '').trim();
+        switch (campo) {
+            case 'name':
+                return v ? '' : 'Escribí tu nombre.';
+            case 'email':
+                if (!v) return 'Escribí tu email.';
+                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)
+                    ? '' : 'Ese email no parece válido.';
+            case 'message':
+                if (!v) return 'Contanos qué necesitás.';
+                return v.length < 10
+                    ? 'Agregá un poco más de detalle.' : '';
+            default:
+                return '';
+        }
+    },
+
     validateForm(data) {
         this.clearFieldErrors();
 
-        const reglas = [
-            ['name',    v => !v.trim(),                       'Escribí tu nombre para que sepamos cómo dirigirnos a vos.'],
-            ['email',   v => !v.trim(),                       'Necesitamos tu email para poder responderte.'],
-            ['email',   v => v.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v),
-                                                              'Revisá el email: parece que le falta el @ o el dominio.'],
-            ['message', v => !v.trim(),                       'Contanos brevemente qué necesitás.'],
-            ['message', v => v.trim() && v.trim().length < 10, 'Agregá un poco más de detalle, con al menos 10 caracteres.'],
-        ];
-
-        let primerFallo = null;
-        for (const [campo, falla, mensaje] of reglas) {
-            const valor = data[campo] || '';
-            if (falla(valor) && !document.getElementById(`${campo}-error`)?.textContent) {
+        let primero = null;
+        for (const campo of ['name', 'email', 'message']) {
+            const mensaje = this.fieldError(campo, data[campo]);
+            if (mensaje) {
                 this.setFieldError(campo, mensaje);
-                if (!primerFallo) primerFallo = campo;
+                if (!primero) primero = campo;
             }
         }
 
-        if (primerFallo) {
-            const input = document.getElementById(primerFallo);
+        if (primero) {
+            const input = document.getElementById(primero);
             if (input) input.focus();
             return false;
         }
         return true;
     },
+
     
     // Envía el formulario a Netlify Forms.
     // Netlify detecta el form por data-netlify="true" en el HTML publicado y
@@ -779,17 +795,25 @@ KodoLabs.Forms = {
     
     setupRealTimeValidation() {
         const formInputs = document.querySelectorAll('#contact-form input, #contact-form textarea, #contact-form select');
-        
+
         formInputs.forEach(input => {
-            input.addEventListener('blur', () => {
+            input.addEventListener('blur', (e) => {
+                // Si el foco va al boton de enviar, no validamos aca: el envio
+                // valida todo igual. Insertar el mensaje en este momento corre
+                // el boton hacia abajo justo cuando la persona esta haciendo
+                // clic, y el clic termina cayendo donde el boton ya no esta.
+                const destino = e.relatedTarget;
+                if (destino && destino.closest && destino.closest('#contact-form') &&
+                    destino.matches('button[type="submit"], .submit-btn')) {
+                    return;
+                }
                 this.validateField(input);
             });
-            
-            input.addEventListener('focus', () => {
-                input.style.borderColor = 'var(--primary-green)';
-                input.classList.remove('error');
-            });
-            
+
+            // El error se limpia cuando la persona empieza a escribir, no al
+            // enfocar. Al enviar, el foco va al primer campo con problema: si
+            // se limpiara en ese momento, ese campo perderia justo el mensaje
+            // que explica que hay que corregir.
             input.addEventListener('input', () => {
                 if (input.classList.contains('error')) {
                     this.validateField(input);
@@ -797,29 +821,25 @@ KodoLabs.Forms = {
             });
         });
     },
-    
+
+    // Antes esta funcion escribia input.style.borderColor directamente. Un
+    // estilo en linea le gana a cualquier regla CSS, asi que pintaba el borde
+    // de verde incluso en campos que el envio marcaba como invalidos: se veia
+    // un borde verde con un mensaje de error rojo justo debajo. Ademas usaba
+    // sus propias reglas, mas laxas que las del envio, y un rojo (#ff6b6b)
+    // pensado para el tema oscuro.
+    //
+    // Ahora comparte las reglas con validateForm y deja el color al CSS,
+    // que reacciona al atributo aria-invalid.
     validateField(input) {
-        const value = input.value.trim();
-        let isValid = true;
-        
-        if (input.hasAttribute('required') && !value) {
-            isValid = false;
+        const mensaje = KodoLabs.Forms.fieldError(input.id, input.value);
+
+        if (KodoLabs.Forms.setFieldError) {
+            KodoLabs.Forms.setFieldError(input.id, mensaje);
         }
-        
-        if (input.type === 'email' && value) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            isValid = emailRegex.test(value);
-        }
-        
-        if (isValid) {
-            input.style.borderColor = 'var(--primary-green)';
-            input.classList.remove('error');
-        } else {
-            input.style.borderColor = '#ff6b6b';
-            input.classList.add('error');
-        }
-        
-        return isValid;
+        input.classList.toggle('error', !!mensaje);
+
+        return !mensaje;
     }
 };
 

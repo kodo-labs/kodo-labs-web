@@ -1568,20 +1568,11 @@ window.trackEvent = function(category, action, label) {
     KodoLabs.Analytics.trackEvent(category, action, label);
 };
 
-// ===== SERVICE WORKER PARA PWA =====
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-            .then(registration => {
-                console.log('SW registrado:', registration.scope);
-                KodoLabs.Analytics.trackEvent('pwa', 'service_worker_registered');
-            })
-            .catch(error => {
-                console.log('SW falló:', error);
-                KodoLabs.Analytics.trackEvent('pwa', 'service_worker_failed');
-            });
-    });
-}
+// ===== SERVICE WORKER =====
+// Registro retirado: /sw.js nunca existio en el repositorio, asi que cada
+// visita generaba un 404 y un error en consola. Si mas adelante se quiere
+// caché offline, primero hay que escribir el sw.js y despues volver a
+// registrarlo aca.
 
 // ===== MANEJO DE ERRORES GLOBALES =====
 window.addEventListener('error', (e) => {
@@ -1829,49 +1820,59 @@ const modernCookieCSS = `
 
 /* Responsive */
 @media (max-width: 768px) {
+    /* En movil el banner ocupaba el 40% de la pantalla y tapaba el CTA del
+       hero. Se compacta a una barra inferior: sin icono decorativo, texto
+       en una linea y los tres botones en fila con altura tactil de 44px. */
     .modern-cookie-banner {
-        left: 10px;
-        right: 10px;
+        left: 8px;
+        right: 8px;
         max-width: none;
-        border-radius: 15px;
+        border-radius: 14px;
     }
-    
+
     .cookie-content {
         grid-template-columns: 1fr;
-        gap: 16px;
-        text-align: center;
-        padding: 16px;
+        gap: 12px;
+        text-align: left;
+        padding: 14px 16px;
     }
-    
+
+    .cookie-icon {
+        display: none;
+    }
+
     .cookie-actions {
         flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
+        justify-content: stretch;
+        flex-wrap: nowrap;
+        gap: 8px;
+        width: 100%;
     }
-    
+
     .cookie-text h4 {
-        font-size: 1rem;
+        font-size: 0.95rem;
+        margin-bottom: 2px;
     }
-    
+
     .cookie-text p {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
+        line-height: 1.4;
     }
-    
+
     .cookie-btn {
-        padding: 10px 16px;
-        font-size: 0.9rem;
+        flex: 1 1 0;
+        min-height: 44px;
+        padding: 11px 8px;
+        font-size: 0.82rem;
+        white-space: nowrap;
+        justify-content: center;
     }
 }
 
-@media (max-width: 480px) {
-    .cookie-actions {
-        flex-direction: column;
-        width: 100%;
-    }
-    
+@media (max-width: 380px) {
     .cookie-btn {
-        width: 100%;
-        justify-content: center;
+        font-size: 0.76rem;
+        padding: 11px 4px;
     }
 }
 

@@ -121,6 +121,28 @@
     }
 }
 
+
+/* Enlaces sueltos (fuera de nav, botones y tarjetas).
+   Sin esta regla heredaban el azul por defecto del navegador, que sobre el
+   fondo oscuro daba 2,23:1 de contraste: por debajo del minimo WCAG AA. */
+a {
+    color: var(--primary-green);
+    text-decoration-color: rgba(0, 200, 81, 0.4);
+    text-underline-offset: 3px;
+    transition: var(--transition-fast);
+}
+
+a:hover {
+    color: var(--secondary-green);
+    text-decoration-color: currentColor;
+}
+
+a:focus-visible {
+    outline: 3px solid var(--accent-cyan);
+    outline-offset: 3px;
+    border-radius: 3px;
+}
+
 /* Reset ultra mejorado */
 *,
 *::before,

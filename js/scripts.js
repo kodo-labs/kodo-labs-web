@@ -204,6 +204,10 @@ KodoLabs.Navigation = {
         
         mobileMenu.classList.add('active');
         navLinks.classList.add('active');
+        // Sin esto el boton quedaba siempre en aria-expanded="false" y un
+        // lector de pantalla anunciaba el menu como cerrado aun abierto.
+        mobileMenu.setAttribute('aria-expanded', 'true');
+        mobileMenu.setAttribute('aria-label', 'Cerrar menú de navegación');
         KodoLabs.state.isMobileMenuOpen = true;
         
         // Animación escalonada de enlaces
@@ -228,6 +232,8 @@ KodoLabs.Navigation = {
         
         mobileMenu.classList.remove('active');
         navLinks.classList.remove('active');
+        mobileMenu.setAttribute('aria-expanded', 'false');
+        mobileMenu.setAttribute('aria-label', 'Abrir menú de navegación');
         KodoLabs.state.isMobileMenuOpen = false;
         
         KodoLabs.Analytics.trackEvent('navigation', 'mobile_menu_close');
@@ -610,7 +616,7 @@ KodoLabs.Forms = {
             const formObject = Object.fromEntries(formData);
             
             if (!this.validateForm(formObject)) {
-                this.showMessage('Por favor, completa todos los campos requeridos.', 'error');
+                this.showMessage('Revisá los campos marcados y volvé a intentar.', 'error');
                 return;
             }
             
@@ -621,6 +627,7 @@ KodoLabs.Forms = {
 
                 this.showMessage('¡Mensaje enviado correctamente! Te contactaremos pronto.', 'success');
                 contactForm.reset();
+                this.clearFieldErrors();
                 KodoLabs.Analytics.trackEvent('contact', 'form_submit_success');
 
             } catch (error) {
@@ -632,22 +639,50 @@ KodoLabs.Forms = {
         });
     },
     
+    // Escribe el error en el contenedor del propio campo, en vez de mostrar
+    // solo un cartel general arriba del formulario. Los contenedores ya
+    // existian en el HTML (#name-error, #email-error, #message-error) y
+    // estan enlazados por aria-describedby.
+    setFieldError(campo, mensaje) {
+        const input = document.getElementById(campo);
+        const salida = document.getElementById(`${campo}-error`);
+        if (salida) salida.textContent = mensaje || '';
+        if (input) {
+            if (mensaje) input.setAttribute('aria-invalid', 'true');
+            else input.removeAttribute('aria-invalid');
+        }
+    },
+
+    clearFieldErrors() {
+        ['name', 'email', 'message'].forEach(c => this.setFieldError(c, ''));
+    },
+
     validateForm(data) {
-        const requiredFields = ['name', 'email', 'message'];
-        
-        for (let field of requiredFields) {
-            if (!data[field] || data[field].trim() === '') {
-                return false;
+        this.clearFieldErrors();
+
+        const reglas = [
+            ['name',    v => !v.trim(),                       'Escribí tu nombre para que sepamos cómo dirigirnos a vos.'],
+            ['email',   v => !v.trim(),                       'Necesitamos tu email para poder responderte.'],
+            ['email',   v => v.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v),
+                                                              'Revisá el email: parece que le falta el @ o el dominio.'],
+            ['message', v => !v.trim(),                       'Contanos brevemente qué necesitás.'],
+            ['message', v => v.trim() && v.trim().length < 10, 'Agregá un poco más de detalle, con al menos 10 caracteres.'],
+        ];
+
+        let primerFallo = null;
+        for (const [campo, falla, mensaje] of reglas) {
+            const valor = data[campo] || '';
+            if (falla(valor) && !document.getElementById(`${campo}-error`)?.textContent) {
+                this.setFieldError(campo, mensaje);
+                if (!primerFallo) primerFallo = campo;
             }
         }
-        
-        // Validación de email mejorada
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(data.email)) {
-            this.showMessage('Por favor, ingresa un email válido.', 'error');
+
+        if (primerFallo) {
+            const input = document.getElementById(primerFallo);
+            if (input) input.focus();
             return false;
         }
-        
         return true;
     },
     
@@ -805,6 +840,15 @@ KodoLabs.Modals = {
                 if (modalId) {
                     this.openModal(modalId);
                 }
+            });
+
+            // Las tarjetas son focusables (tabindex="0") pero solo respondian
+            // al raton. Se reproduce el mismo camino que un clic real, para
+            // no depender de cual de las implementaciones de modal gana.
+            item.addEventListener('keydown', (e) => {
+                if (e.key !== 'Enter' && e.key !== ' ') return;
+                e.preventDefault();
+                item.click();
             });
         });
     },

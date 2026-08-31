@@ -3429,3 +3429,95 @@ option {
     justify-content: center;
     box-shadow: var(--shadow-primary);
 }
+
+/* ==========================================================================
+   Hallazgos medios de la auditoria UX/UI
+   ========================================================================== */
+
+/* 10 · Los casos de estudio y prototipos se veian igual que los trabajos
+   entregados a clientes. La etiqueta lo aclara antes de abrir el modal. */
+.case-badge {
+    display: inline-block;
+    margin-bottom: var(--space-xs);
+    padding: 4px 10px;
+    border-radius: 100px;
+    background: var(--surface-sunken);
+    border: 1px solid var(--border-strong);
+    color: var(--text-secondary);
+    font-size: 0.72rem;
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.portfolio-case-study {
+    border-style: dashed;
+}
+
+/* 14 · .error-text y .help-text se usaban en el HTML pero no existian:
+   los mensajes habrian salido en el color y tamaño del texto normal. */
+.help-text {
+    margin-top: 6px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1.45;
+}
+
+.error-text {
+    margin-top: 6px;
+    color: #C0392B;
+    font-size: 0.85rem;
+    font-weight: var(--font-weight-medium);
+    line-height: 1.45;
+}
+
+.error-text:empty {
+    display: none;
+}
+
+.form-group input[aria-invalid="true"],
+.form-group textarea[aria-invalid="true"] {
+    border-color: #C0392B;
+}
+
+/* 13 · Los enlaces del pie median 29 px de alto, por debajo del minimo
+   tactil de 44 px, y estaban muy juntos entre si. */
+.footer-section > a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 2px 0;
+}
+
+/* 17 · En movil el CTA no estaba en el encabezado ni en el menu: quedaba
+   como un enlace de seccion mas, sin jerarquia. */
+.nav-cta-item {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .nav-cta-item {
+        display: block;
+        margin-top: var(--space-sm);
+        padding-top: var(--space-sm);
+        border-top: 1px solid var(--border-subtle);
+    }
+
+    .nav-links .nav-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 12px 32px;
+        border-radius: 100px;
+        background: var(--gradient-primary);
+        color: var(--text-on-accent);
+        font-weight: var(--font-weight-bold);
+        box-shadow: var(--shadow-primary);
+    }
+
+    .nav-links .nav-cta:hover,
+    .nav-links .nav-cta:focus-visible {
+        color: var(--text-on-accent);
+    }
+}

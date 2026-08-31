@@ -13,17 +13,29 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
 
 # Cache para archivos estáticos
+#
+# Estos archivos tenían max-age=31536000 (un año). Esa cabecera solo es
+# correcta cuando el nombre del archivo cambia en cada publicación
+# (styles.a3f9c1.css), porque entonces una versión nueva es una URL nueva.
+# Este sitio no tiene build y los nombres son fijos, así que el navegador
+# se quedaba con la copia vieja y no volvía a pedirla: los cambios no se
+# veían hasta vaciar el caché a mano.
+#
+# CSS y JS: se revalidan siempre. Netlify manda ETag, así que cuando no
+# cambiaron la respuesta es un 304 sin cuerpo y no cuesta casi nada.
 [[headers]]
   for = "/css/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000"
+    Cache-Control = "public, max-age=0, must-revalidate"
 
 [[headers]]
   for = "/js/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000"
+    Cache-Control = "public, max-age=0, must-revalidate"
 
+# Imágenes: cambian poco, así que se guardan un día y durante la semana
+# siguiente se sirve la copia vieja mientras se descarga la nueva de fondo.
 [[headers]]
   for = "/images/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000"
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"

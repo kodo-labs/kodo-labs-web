@@ -14,15 +14,15 @@
     --gradient-primary: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
     --gradient-accent: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
     --gradient-warm: linear-gradient(135deg, var(--accent-orange), var(--primary-green));
-    --gradient-dark: linear-gradient(135deg, #000000, #1a1a1a, #2d2d2d);
-    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    --gradient-dark: linear-gradient(135deg, #FFFFFF, #F5F9F6 45%, #E9F1EB);
+    --gradient-glass: linear-gradient(135deg, rgba(15,26,20,0.03), rgba(15,26,20,0.01));
     
     /* Sombras premium */
-    --shadow-primary: 0 20px 40px rgba(0, 200, 81, 0.15);
-    --shadow-large: 0 25px 50px rgba(0, 0, 0, 0.2);
+    --shadow-primary: 0 16px 32px rgba(0, 200, 81, 0.16);
+    --shadow-large: 0 18px 40px rgba(15, 26, 20, 0.10);
     --shadow-extra-large: 0 40px 80px rgba(0, 200, 81, 0.3);
     --shadow-glow: 0 0 30px rgba(0, 200, 81, 0.4);
-    --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.12);
+    --shadow-glass: 0 6px 24px rgba(15, 26, 20, 0.07);
     
     /* Geometría moderna */
     --border-radius: 20px;
@@ -60,6 +60,28 @@
     --z-popover: 1060;
     --z-tooltip: 1070;
     --z-toast: 1080;
+
+    /* ---- Superficies (tema claro) ---- */
+    --surface-page: #F5F9F6;      /* fondo general, blanco con matiz verde */
+    --surface-raised: #FFFFFF;    /* tarjetas, formulario, modales */
+    --surface-sunken: #E9F1EB;    /* secciones alternas, inputs, cabecera de modal */
+    --scrim: rgba(15, 26, 20, 0.55);  /* fondo detras de modales */
+
+    /* ---- Texto (contrastes medidos sobre --surface-page) ---- */
+    --text-primary: #0F1A14;      /* 16,77:1 */
+    --text-secondary: #43544A;    /*  7,58:1 */
+    --text-muted: #63756A;        /*  4,61:1 */
+    --text-on-accent: #04140A;    /*  8,45:1 sobre el verde brillante */
+
+    /* El verde de marca da 2,11:1 sobre fondo claro, insuficiente para texto.
+       Esta variante mas oscura da 5,12:1 y se usa en enlaces y texto verde;
+       --primary-green sigue usandose para rellenos, bordes e iconos. */
+    --green-text: #0A7A3C;
+    --gradient-green-text: linear-gradient(135deg, #0A7A3C, #067A6E);
+
+    /* ---- Bordes ---- */
+    --border-subtle: #DCE7E0;
+    --border-strong: #C8D8CE;
 }
 
 
@@ -126,7 +148,7 @@
    Sin esta regla heredaban el azul por defecto del navegador, que sobre el
    fondo oscuro daba 2,23:1 de contraste: por debajo del minimo WCAG AA. */
 a {
-    color: var(--primary-green);
+    color: var(--green-text);
     text-decoration-color: rgba(0, 200, 81, 0.4);
     text-underline-offset: 3px;
     transition: var(--transition-fast);
@@ -159,7 +181,7 @@ a:focus-visible {
 }
 
 ::-webkit-scrollbar-track {
-    background: #000;
+    background: var(--surface-sunken);
     border-radius: 4px;
 }
 
@@ -175,7 +197,7 @@ a:focus-visible {
 }
 
 ::-webkit-scrollbar-corner {
-    background: #000;
+    background: var(--surface-sunken);
 }
 
 /* Body con tipografía optimizada */
@@ -189,8 +211,8 @@ body {
     font-weight: var(--font-weight-normal);
     font-size: 1rem;
     line-height: 1.6;
-    color: #ffffff;
-    background: #000000;
+    color: var(--text-primary);
+    background: var(--surface-page);
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -226,10 +248,10 @@ header {
     top: 0;
     width: 100%;
     z-index: var(--z-fixed);
-    background: rgba(0, 0, 0, 0.85) !important;
-    backdrop-filter: blur(25px) saturate(180%);
-    -webkit-backdrop-filter: blur(25px) saturate(180%);
-    border-bottom: 1px solid rgba(0, 200, 81, 0.2);
+    background: rgba(245, 249, 246, 0.85) !important;
+    backdrop-filter: blur(18px) saturate(115%);
+    -webkit-backdrop-filter: blur(18px) saturate(115%);
+    border-bottom: 1px solid var(--border-subtle);
     transition: var(--transition);
     box-shadow: var(--shadow-glass);
 }
@@ -242,16 +264,8 @@ header::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(90deg, 
-        rgba(0, 200, 81, 0.05) 0%, 
-        transparent 20%, 
-        transparent 40%,
-        rgba(0, 212, 255, 0.05) 50%,
-        transparent 60%,
-        transparent 80%, 
-        rgba(108, 92, 231, 0.05) 100%);
+    background: linear-gradient(90deg, rgba(0, 200, 81, 0.04), transparent 60%);
     pointer-events: none;
-    animation: hologram 8s linear infinite;
 }
 
 @keyframes hologram {
@@ -260,10 +274,10 @@ header::before {
 }
 
 header.scrolled {
-    background: rgba(0, 0, 0, 0.95) !important;
+    background: rgba(245, 249, 246, 0.95) !important;
     backdrop-filter: blur(30px) saturate(200%);
     box-shadow: var(--shadow-primary);
-    border-bottom-color: var(--primary-green);
+    border-bottom-color: var(--green-text);
 }
 
 nav {
@@ -410,7 +424,7 @@ a.logo:focus {
 .nav-links a {
     position: relative;
     text-decoration: none;
-    color: #cccccc;
+    color: var(--text-secondary);
     font-weight: var(--font-weight-medium);
     font-size: 0.95rem;
     transition: var(--transition);
@@ -449,7 +463,7 @@ a.logo:focus {
 }
 
 .nav-links a:hover {
-    color: #000000;
+    color: var(--text-on-accent);
     transform: translateY(-2px);
 }
 
@@ -464,7 +478,7 @@ a.logo:focus {
 /* CTA Button premium */
 .cta-button {
     background: var(--gradient-primary);
-    color: #000000;
+    color: var(--text-on-accent);
     padding: 12px 24px;
     border-radius: 25px;
     text-decoration: none;
@@ -546,8 +560,8 @@ a.logo:focus {
 
 /* Hero Section ultra moderno */
 .hero {
-    background: var(--gradient-dark);
-    color: white;
+    background: linear-gradient(180deg, var(--surface-raised) 0%, var(--surface-page) 100%);
+    color: var(--text-primary);
     padding: 140px 0 100px;
     text-align: center;
     position: relative;
@@ -584,13 +598,13 @@ a.logo:focus {
 .hero::after {
     content: '';
     position: absolute;
-    width: 100%;
-    height: 100%;
+    top: -30%;
+    left: -30%;
+    width: 160%;
+    height: 160%;
     background-image: 
-        radial-gradient(circle at 20% 20%, rgba(0, 200, 81, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(0, 212, 255, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 60% 30%, rgba(108, 92, 231, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 40% 70%, rgba(255, 107, 53, 0.1) 0%, transparent 50%);
+        radial-gradient(circle at 18% 22%, rgba(0, 200, 81, 0.10) 0%, transparent 45%),
+        radial-gradient(circle at 82% 78%, rgba(0, 200, 81, 0.07) 0%, transparent 45%);
     animation: floating-particles 12s ease-in-out infinite;
     will-change: transform;
 }
@@ -640,11 +654,7 @@ a.logo:focus {
     margin-bottom: var(--space-md);
     font-weight: var(--font-weight-black);
     line-height: 1.1;
-    background: linear-gradient(135deg, 
-        #ffffff 0%, 
-        var(--primary-green) 30%, 
-        var(--accent-cyan) 60%, 
-        var(--accent-purple) 100%);
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--green-text) 45%, #067A6E 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -666,7 +676,7 @@ a.logo:focus {
     font-size: clamp(1.1rem, 2.5vw, 1.4rem);
     margin-bottom: var(--space-xl);
     opacity: 0.9;
-    color: #e8e8e8;
+    color: var(--text-secondary);
     line-height: 1.7;
     font-weight: var(--font-weight-normal);
     text-align: center;
@@ -708,14 +718,14 @@ a.logo:focus {
 
 .btn-primary {
     background: var(--gradient-primary);
-    color: #000000;
+    color: var(--text-on-accent);
     box-shadow: var(--shadow-primary);
-    border-color: var(--primary-green);
+    border-color: var(--green-text);
 }
 
 .btn-secondary {
     background: rgba(0, 200, 81, 0.1);
-    color: var(--primary-green);
+    color: var(--green-text);
     border: 2px solid var(--primary-green);
     backdrop-filter: blur(15px);
 }
@@ -746,7 +756,7 @@ a.logo:focus {
 
 .btn-secondary:hover {
     background: var(--gradient-primary);
-    color: #000000;
+    color: var(--text-on-accent);
     transform: translateY(-6px) scale(1.05);
     box-shadow: var(--shadow-extra-large);
 }
@@ -754,8 +764,8 @@ a.logo:focus {
 /* Tech showcase premium */
 .tech-showcase {
     padding: 80px 0;
-    background: linear-gradient(135deg, #0a0a0a, #1a1a1a, #0f0f0f);
-    border-bottom: 1px solid rgba(0, 200, 81, 0.15);
+    background: var(--surface-sunken);
+    border-bottom: 1px solid var(--border-subtle);
     position: relative;
     overflow: hidden;
 }
@@ -788,8 +798,8 @@ a.logo:focus {
     padding: var(--space-lg) var(--space-sm);
     transition: var(--transition);
     border-radius: var(--border-radius-small);
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: var(--surface-raised);
+    border: 1px solid var(--surface-sunken);
     backdrop-filter: blur(10px);
     position: relative;
     overflow: hidden;
@@ -842,7 +852,7 @@ a.logo:focus {
 }
 
 .tech-item div {
-    color: #ccc;
+    color: var(--text-secondary);
     font-size: 0.9rem;
     font-weight: var(--font-weight-medium);
     margin-top: var(--space-xs);
@@ -850,7 +860,7 @@ a.logo:focus {
 }
 
 .tech-item:hover div {
-    color: var(--primary-green);
+    color: var(--green-text);
     font-weight: var(--font-weight-semibold);
 }
 
@@ -879,14 +889,11 @@ a.logo:focus {
 .section-title h2 {
     font-size: clamp(2rem, 4vw, 3rem);
     margin-bottom: var(--space-md);
-    color: #ffffff;
+    color: var(--text-primary);
     font-weight: var(--font-weight-black);
     line-height: 1.2;
     letter-spacing: -0.01em;
-    background: linear-gradient(135deg, 
-        #ffffff 0%, 
-        var(--primary-green) 50%, 
-        var(--accent-cyan) 100%);
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--green-text) 55%, #067A6E 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -894,7 +901,7 @@ a.logo:focus {
 
 .section-title p {
     font-size: clamp(1rem, 2vw, 1.2rem);
-    color: #d0d0d0;
+    color: var(--text-secondary);
     font-weight: var(--font-weight-normal);
     line-height: 1.7;
     letter-spacing: 0.01em;
@@ -903,7 +910,7 @@ a.logo:focus {
 /* Services section premium */
 .services {
     padding: 120px 0;
-    background: #000000;
+    background: var(--surface-page);
     position: relative;
     overflow: hidden;
 }
@@ -937,16 +944,14 @@ a.logo:focus {
 
 /* Service Cards ultra premium */
 .service-card {
-    background: linear-gradient(145deg, 
-        rgba(17, 17, 17, 0.8), 
-        rgba(26, 26, 26, 0.6));
+    background: var(--surface-raised);
     backdrop-filter: blur(20px);
     padding: var(--space-xl) var(--space-lg);
     border-radius: var(--border-radius-large);
     box-shadow: var(--shadow-large);
     transition: var(--transition);
     text-align: center;
-    border: 1px solid rgba(0, 200, 81, 0.2);
+    border: 1px solid var(--border-subtle);
     position: relative;
     overflow: hidden;
     will-change: transform;
@@ -989,7 +994,7 @@ a.logo:focus {
 .service-card:hover {
     transform: translateY(-20px) scale(1.02) rotateX(5deg);
     box-shadow: var(--shadow-extra-large);
-    border-color: var(--primary-green);
+    border-color: var(--green-text);
 }
 
 .service-icon {
@@ -1022,7 +1027,7 @@ a.logo:focus {
 .service-card h3 {
     font-size: 1.6rem;
     margin-bottom: var(--space-sm);
-    color: #ffffff;
+    color: var(--text-primary);
     font-weight: var(--font-weight-bold);
     line-height: 1.3;
     letter-spacing: -0.01em;
@@ -1031,7 +1036,7 @@ a.logo:focus {
 }
 
 .service-card p {
-    color: #d5d5d5;
+    color: var(--text-secondary);
     margin-bottom: var(--space-md);
     font-weight: var(--font-weight-normal);
     line-height: 1.6;
@@ -1052,7 +1057,7 @@ a.logo:focus {
 
 .service-features li {
     padding: var(--space-xs) 0;
-    color: #ffffff;
+    color: var(--text-primary);
     display: flex;
     align-items: center;
     gap: 12px;
@@ -1067,11 +1072,11 @@ a.logo:focus {
 .service-features li:hover {
     background: rgba(0, 200, 81, 0.08);
     transform: translateX(8px);
-    color: var(--primary-green);
+    color: var(--green-text);
 }
 
 .service-features li i {
-    color: var(--primary-green);
+    color: var(--green-text);
     font-size: 1rem;
     width: 18px;
     text-align: center;
@@ -1081,7 +1086,7 @@ a.logo:focus {
 /* Portfolio section ultra premium */
 .portfolio {
     padding: 120px 0;
-    background: linear-gradient(135deg, #111111, #1a1a1a, #0f0f0f);
+    background: var(--surface-sunken);
     position: relative;
     overflow: hidden;
 }
@@ -1126,11 +1131,9 @@ a.logo:focus {
 
 /* Portfolio items premium */
 .portfolio-item {
-    background: linear-gradient(145deg, 
-        rgba(10, 10, 10, 0.9), 
-        rgba(26, 26, 26, 0.8));
+    background: var(--surface-raised);
     backdrop-filter: blur(25px);
-    border: 1px solid rgba(0, 200, 81, 0.2);
+    border: 1px solid var(--border-subtle);
     border-radius: var(--border-radius-large);
     overflow: hidden;
     transition: var(--transition);
@@ -1162,7 +1165,7 @@ a.logo:focus {
     top: 20px;
     right: 20px;
     background: var(--gradient-primary);
-    color: #000000;
+    color: var(--text-on-accent);
     padding: 8px 16px;
     border-radius: 20px;
     font-size: 0.85rem;
@@ -1186,7 +1189,7 @@ a.logo:focus {
 .portfolio-item:hover {
     transform: translateY(-15px) scale(1.02) rotateX(2deg);
     box-shadow: var(--shadow-extra-large);
-    border-color: var(--primary-green);
+    border-color: var(--green-text);
 }
 
 .portfolio-image {
@@ -1195,7 +1198,7 @@ a.logo:focus {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #000;
+    color: var(--text-primary);
     font-size: 4rem;
     position: relative;
     overflow: hidden;
@@ -1240,14 +1243,14 @@ a.logo:focus {
 .portfolio-content h3 {
     font-size: 1.6rem;
     margin-bottom: var(--space-sm);
-    color: #ffffff;
+    color: var(--text-primary);
     font-weight: var(--font-weight-bold);
     line-height: 1.3;
     letter-spacing: -0.01em;
 }
 
 .portfolio-content p {
-    color: #d0d0d0;
+    color: var(--text-secondary);
     margin-bottom: var(--space-md);
     font-weight: var(--font-weight-normal);
     line-height: 1.6;
@@ -1264,7 +1267,7 @@ a.logo:focus {
 /* Tags ultra premium */
 .tag {
     background: rgba(0, 200, 81, 0.12);
-    color: var(--primary-green);
+    color: var(--green-text);
     padding: 6px 14px;
     border-radius: 25px;
     font-size: 0.85rem;
@@ -1290,10 +1293,10 @@ a.logo:focus {
 }
 
 .tag:hover {
-    color: #000000;
+    color: var(--text-on-accent);
     transform: translateY(-3px) scale(1.05);
     box-shadow: 0 8px 20px rgba(0, 200, 81, 0.3);
-    border-color: var(--primary-green);
+    border-color: var(--green-text);
 }
 
 .tag:hover::before {
@@ -1309,7 +1312,7 @@ a.logo:focus {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.92);
+    background-color: var(--scrim);
     backdrop-filter: blur(25px) saturate(150%);
     animation: modal-fade-in 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -1332,9 +1335,7 @@ a.logo:focus {
 }
 
 .modal-content {
-    background: linear-gradient(145deg, 
-        rgba(17, 17, 17, 0.95), 
-        rgba(26, 26, 26, 0.9));
+    background: var(--surface-raised);
     backdrop-filter: blur(30px) saturate(180%);
     margin: 2% auto;
     padding: 0;
@@ -1343,7 +1344,7 @@ a.logo:focus {
     max-width: 1000px;
     max-height: 90vh;
     overflow-y: auto;
-    border: 2px solid rgba(0, 200, 81, 0.3);
+    border: 2px solid var(--border-strong);
     box-shadow: var(--shadow-extra-large);
     position: relative;
     overflow: hidden;
@@ -1378,11 +1379,9 @@ a.logo:focus {
 }
 
 .modal-header {
-    background: linear-gradient(135deg, 
-        rgba(10, 10, 10, 0.95), 
-        rgba(26, 26, 26, 0.9));
+    background: var(--surface-sunken);
     backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(0, 200, 81, 0.2);
+    border-bottom: 1px solid var(--border-subtle);
     padding: var(--space-xl);
     display: flex;
     justify-content: space-between;
@@ -1393,13 +1392,13 @@ a.logo:focus {
 }
 
 .modal-header h2 {
-    color: #ffffff;
+    color: var(--text-primary);
     font-size: 2.2rem;
     font-weight: var(--font-weight-black);
     margin: 0;
     line-height: 1.2;
     letter-spacing: -0.01em;
-    background: var(--gradient-primary);
+    background: var(--gradient-green-text);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -1407,10 +1406,10 @@ a.logo:focus {
 
 .modal-close {
     background: rgba(0, 200, 81, 0.1);
-    border: 1px solid rgba(0, 200, 81, 0.3);
+    border: 1px solid var(--border-strong);
     border-radius: 50%;
     transition: var(--transition);
-    color: #cccccc;
+    color: var(--text-secondary);
     font-size: 1.8rem;
     font-weight: bold;
     cursor: pointer;
@@ -1438,9 +1437,9 @@ a.logo:focus {
 }
 
 .modal-close:hover {
-    color: #000000;
+    color: var(--text-on-accent);
     transform: scale(1.15) rotate(90deg);
-    border-color: var(--primary-green);
+    border-color: var(--green-text);
     box-shadow: var(--shadow-glow);
 }
 
@@ -1462,17 +1461,17 @@ a.logo:focus {
 .project-img {
     width: 100%;
     height: 220px;
-    background: linear-gradient(135deg, #222222, #333333, #2a2a2a);
+    background: linear-gradient(135deg, var(--surface-sunken), var(--border-subtle));
     border-radius: var(--border-radius-small);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #cccccc;
+    color: var(--text-secondary);
     font-size: 1.1rem;
     font-weight: var(--font-weight-medium);
     position: relative;
     overflow: hidden;
-    border: 1px solid rgba(0, 200, 81, 0.2);
+    border: 1px solid var(--border-subtle);
     transition: var(--transition);
     backdrop-filter: blur(10px);
 }
@@ -1500,14 +1499,14 @@ a.logo:focus {
 }
 
 .project-img:hover {
-    border-color: var(--primary-green);
+    border-color: var(--green-text);
     transform: scale(1.05) rotateY(5deg);
     box-shadow: var(--shadow-primary);
-    color: var(--primary-green);
+    color: var(--green-text);
 }
 
 .project-details {
-    color: #d0d0d0;
+    color: var(--text-secondary);
     line-height: 1.8;
     font-weight: var(--font-weight-normal);
     font-size: 1.05rem;
@@ -1515,7 +1514,7 @@ a.logo:focus {
 }
 
 .project-details h3 {
-    color: var(--primary-green);
+    color: var(--green-text);
     margin: var(--space-xl) 0 var(--space-sm) 0;
     font-size: 1.4rem;
     font-weight: var(--font-weight-bold);
@@ -1553,11 +1552,11 @@ a.logo:focus {
 }
 
 .project-details li::marker {
-    color: var(--primary-green);
+    color: var(--green-text);
 }
 
 .project-details strong {
-    color: #ffffff;
+    color: var(--text-primary);
     font-weight: var(--font-weight-semibold);
 }
 
@@ -1569,7 +1568,7 @@ a.logo:focus {
 /* About section premium */
 .about {
     padding: 120px 0;
-    background: #000000;
+    background: var(--surface-page);
     position: relative;
     overflow: hidden;
 }
@@ -1605,7 +1604,7 @@ a.logo:focus {
 .about-text h2 {
     font-size: clamp(2rem, 4vw, 3rem);
     margin-bottom: var(--space-md);
-    color: #ffffff;
+    color: var(--text-primary);
     font-weight: var(--font-weight-black);
     line-height: 1.2;
     letter-spacing: -0.01em;
@@ -1616,7 +1615,7 @@ a.logo:focus {
 }
 
 .about-text p {
-    color: #d0d0d0;
+    color: var(--text-secondary);
     margin-bottom: var(--space-md);
     font-size: clamp(1rem, 2vw, 1.15rem);
     font-weight: var(--font-weight-normal);
@@ -1632,7 +1631,7 @@ a.logo:focus {
 
 .about-features li {
     padding: var(--space-sm) 0;
-    color: #ffffff;
+    color: var(--text-primary);
     display: flex;
     align-items: center;
     gap: var(--space-sm);
@@ -1647,11 +1646,11 @@ a.logo:focus {
 .about-features li:hover {
     background: rgba(0, 200, 81, 0.08);
     transform: translateX(12px);
-    color: var(--primary-green);
+    color: var(--green-text);
 }
 
 .about-features li i {
-    color: var(--primary-green);
+    color: var(--green-text);
     font-size: 1.3rem;
     width: 24px;
     text-align: center;
@@ -1666,13 +1665,13 @@ a.logo:focus {
 
 .about-image {
     background: var(--gradient-dark);
-    border: 2px solid rgba(0, 200, 81, 0.3);
+    border: 2px solid var(--border-strong);
     border-radius: var(--border-radius-large);
     height: 480px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--primary-green);
+    color: var(--green-text);
     font-size: 6rem;
     position: relative;
     overflow: hidden;
@@ -1713,9 +1712,9 @@ a.logo:focus {
 /* Stats section premium */
 .stats-section {
     padding: 100px 0;
-    background: linear-gradient(135deg, #0a0a0a, #1a1a1a, #0f0f0f);
-    border-top: 1px solid rgba(0, 200, 81, 0.2);
-    border-bottom: 1px solid rgba(0, 200, 81, 0.2);
+    background: var(--surface-sunken);
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
     position: relative;
     overflow: hidden;
 }
@@ -1748,12 +1747,10 @@ a.logo:focus {
 
 .stat-item {
     padding: var(--space-xl);
-    background: linear-gradient(145deg, 
-        rgba(17, 17, 17, 0.8), 
-        rgba(26, 26, 26, 0.6));
+    background: var(--surface-raised);
     backdrop-filter: blur(20px);
     border-radius: var(--border-radius);
-    border: 1px solid rgba(0, 200, 81, 0.2);
+    border: 1px solid var(--border-subtle);
     transition: var(--transition);
     position: relative;
     overflow: hidden;
@@ -1773,7 +1770,7 @@ a.logo:focus {
 
 .stat-item:hover {
     transform: translateY(-15px) scale(1.02);
-    border-color: var(--primary-green);
+    border-color: var(--green-text);
     box-shadow: var(--shadow-primary);
 }
 
@@ -1797,7 +1794,7 @@ a.logo:focus {
 }
 
 .stat-label {
-    color: #d0d0d0;
+    color: var(--text-secondary);
     font-size: 1.1rem;
     font-weight: var(--font-weight-medium);
     line-height: 1.3;
@@ -1809,7 +1806,7 @@ a.logo:focus {
 /* Contact section ultra premium */
 .contact {
     padding: 120px 0;
-    background: linear-gradient(135deg, #111111, #1a1a1a);
+    background: var(--surface-sunken);
     position: relative;
     overflow: hidden;
 }
@@ -1844,7 +1841,7 @@ a.logo:focus {
 .contact-info h3 {
     font-size: 2rem;
     margin-bottom: var(--space-md);
-    color: #ffffff;
+    color: var(--text-primary);
     font-weight: var(--font-weight-bold);
     line-height: 1.3;
     letter-spacing: -0.01em;
@@ -1855,7 +1852,7 @@ a.logo:focus {
 }
 
 .contact-info p {
-    color: #d0d0d0;
+    color: var(--text-secondary);
     margin-bottom: var(--space-xl);
     font-weight: var(--font-weight-normal);
     line-height: 1.7;
@@ -1864,11 +1861,9 @@ a.logo:focus {
 }
 
 .contact-item {
-    background: linear-gradient(145deg, 
-        rgba(10, 10, 10, 0.8), 
-        rgba(26, 26, 26, 0.6));
+    background: var(--surface-raised);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(0, 200, 81, 0.2);
+    border: 1px solid var(--border-subtle);
     transition: var(--transition);
     display: flex;
     align-items: center;
@@ -1893,7 +1888,7 @@ a.logo:focus {
 }
 
 .contact-item:hover {
-    border-color: var(--primary-green);
+    border-color: var(--green-text);
     transform: translateX(8px) translateY(-2px);
     box-shadow: var(--shadow-primary);
 }
@@ -1904,7 +1899,7 @@ a.logo:focus {
 
 .contact-item i {
     background: var(--gradient-primary);
-    color: #000000;
+    color: var(--text-on-accent);
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -1925,7 +1920,7 @@ a.logo:focus {
 }
 
 .contact-item div h4 {
-    color: #ffffff;
+    color: var(--text-primary);
     margin-bottom: var(--space-xs);
     font-weight: var(--font-weight-semibold);
     font-size: 1.1rem;
@@ -1935,7 +1930,7 @@ a.logo:focus {
 }
 
 .contact-item div p {
-    color: #d0d0d0;
+    color: var(--text-secondary);
     margin: 0;
     font-weight: var(--font-weight-normal);
     font-size: 1rem;
@@ -1946,11 +1941,9 @@ a.logo:focus {
 
 /* Form ultra premium */
 .contact-form {
-    background: linear-gradient(145deg, 
-        rgba(10, 10, 10, 0.9), 
-        rgba(26, 26, 26, 0.8));
+    background: var(--surface-raised);
     backdrop-filter: blur(25px);
-    border: 2px solid rgba(0, 200, 81, 0.3);
+    border: 2px solid var(--border-strong);
     position: relative;
     overflow: hidden;
     padding: var(--space-xl);
@@ -1976,12 +1969,12 @@ a.logo:focus {
 
 .contact-form h3 {
     margin-bottom: var(--space-lg);
-    color: #ffffff;
+    color: var(--text-primary);
     font-weight: var(--font-weight-bold);
     font-size: 1.8rem;
     line-height: 1.3;
     letter-spacing: -0.01em;
-    background: var(--gradient-primary);
+    background: var(--gradient-green-text);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -1997,7 +1990,7 @@ a.logo:focus {
 .form-group label {
     display: block;
     margin-bottom: var(--space-xs);
-    color: #ffffff;
+    color: var(--text-primary);
     font-weight: var(--font-weight-semibold);
     font-size: 1rem;
     letter-spacing: 0.01em;
@@ -2016,9 +2009,9 @@ a.logo:focus {
     font-family: var(--font-primary);
     font-weight: var(--font-weight-normal);
     transition: var(--transition);
-    background: rgba(26, 26, 26, 0.8);
+    background: var(--surface-raised);
     backdrop-filter: blur(15px);
-    color: #ffffff;
+    color: var(--text-primary);
     line-height: 1.5;
     letter-spacing: 0.01em;
     position: relative;
@@ -2027,7 +2020,7 @@ a.logo:focus {
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-    color: #888888;
+    color: var(--text-muted);
     font-weight: var(--font-weight-normal);
     transition: var(--transition);
 }
@@ -2036,15 +2029,15 @@ a.logo:focus {
 .form-group textarea:focus,
 .form-group select:focus {
     outline: none;
-    border-color: var(--primary-green);
+    border-color: var(--green-text);
     box-shadow: 0 0 25px rgba(0, 200, 81, 0.25);
-    background: rgba(26, 26, 26, 0.95);
+    background: var(--surface-raised);
     transform: translateY(-2px);
 }
 
 .form-group input:focus::placeholder,
 .form-group textarea:focus::placeholder {
-    color: #aaaaaa;
+    color: var(--text-muted);
     transform: translateY(-2px);
 }
 
@@ -2056,7 +2049,7 @@ a.logo:focus {
 
 .submit-btn {
     background: var(--gradient-primary);
-    color: #000000;
+    color: var(--text-on-accent);
     padding: 18px 40px;
     border: none;
     border-radius: 30px;
@@ -2174,22 +2167,22 @@ a.logo:focus {
 
 .success-message {
     background: rgba(0, 200, 81, 0.15);
-    color: var(--primary-green);
-    border-color: var(--primary-green);
+    color: var(--green-text);
+    border-color: var(--green-text);
 }
 
 .error-message {
     background: rgba(255, 51, 51, 0.15);
-    color: #ff6b6b;
-    border-color: #ff6b6b;
+    color: #C0392B;
+    border-color: #C0392B;
 }
 
 /* Footer ultra premium */
 footer {
-    background: #000000;
-    color: white;
+    background: var(--surface-page);
+    color: var(--text-primary);
     padding: var(--space-2xl) 0 var(--space-lg);
-    border-top: 2px solid rgba(0, 200, 81, 0.3);
+    border-top: 2px solid var(--border-strong);
     position: relative;
     overflow: hidden;
 }
@@ -2247,7 +2240,7 @@ footer::before {
 
 .footer-section p,
 .footer-section a {
-    color: #d0d0d0;
+    color: var(--text-secondary);
     text-decoration: none;
     line-height: 1.8;
     font-weight: var(--font-weight-normal);
@@ -2259,7 +2252,7 @@ footer::before {
 }
 
 .footer-section a:hover {
-    color: var(--primary-green);
+    color: var(--green-text);
     transform: translateX(8px);
     text-shadow: 0 0 10px rgba(0, 200, 81, 0.5);
 }
@@ -2271,11 +2264,9 @@ footer::before {
 }
 
 .social-links a {
-    background: linear-gradient(145deg, 
-        rgba(17, 17, 17, 0.8), 
-        rgba(26, 26, 26, 0.6));
+    background: var(--surface-raised);
     backdrop-filter: blur(15px);
-    color: #d0d0d0;
+    color: var(--text-secondary);
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -2283,7 +2274,7 @@ footer::before {
     align-items: center;
     justify-content: center;
     transition: var(--transition);
-    border: 1px solid rgba(0, 200, 81, 0.2);
+    border: 1px solid var(--border-subtle);
     font-size: 1.2rem;
     position: relative;
     overflow: hidden;
@@ -2304,10 +2295,10 @@ footer::before {
 }
 
 .social-links a:hover {
-    color: #000000;
+    color: var(--text-on-accent);
     transform: translateY(-8px) scale(1.1) rotate(10deg);
     box-shadow: var(--shadow-glow);
-    border-color: var(--primary-green);
+    border-color: var(--green-text);
 }
 
 .social-links a:hover::before {
@@ -2318,7 +2309,7 @@ footer::before {
     border-top: 1px solid rgba(17, 17, 17, 0.8);
     padding-top: var(--space-lg);
     text-align: center;
-    color: #b0b0b0;
+    color: var(--text-secondary);
     position: relative;
     z-index: 2;
 }
@@ -2339,7 +2330,7 @@ footer::before {
     bottom: 30px;
     right: 30px;
     background: var(--gradient-primary);
-    color: #000000;
+    color: var(--text-on-accent);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -2417,7 +2408,7 @@ footer::before {
 /* Loading states premium */
 .loading .submit-btn {
     background: linear-gradient(135deg, #333333, #444444);
-    color: #888888;
+    color: var(--text-muted);
     cursor: not-allowed;
     pointer-events: none;
 }
@@ -2499,12 +2490,12 @@ footer::before {
         top: 100%;
         left: 0;
         width: 100%;
-        background: rgba(0, 0, 0, 0.98) !important;
+        background: var(--surface-raised) !important;
         backdrop-filter: blur(25px) saturate(150%);
         flex-direction: column;
         box-shadow: var(--shadow-large);
         padding: var(--space-lg) 0;
-        border: 1px solid rgba(0, 200, 81, 0.3);
+        border: 1px solid var(--border-strong);
         border-radius: 0 0 var(--border-radius) var(--border-radius);
         gap: 0;
     }
@@ -2786,26 +2777,26 @@ button:focus-visible {
 
 /* Dark theme enhancements */
 ::placeholder {
-    color: #888888;
+    color: var(--text-muted);
     font-weight: var(--font-weight-normal);
     opacity: 0.8;
 }
 
 ::selection {
     background: rgba(0, 200, 81, 0.3);
-    color: #ffffff;
+    color: var(--text-primary);
     text-shadow: none;
 }
 
 ::-moz-selection {
     background: rgba(0, 200, 81, 0.3);
-    color: #ffffff;
+    color: var(--text-primary);
     text-shadow: none;
 }
 
 option {
     background: var(--background-darker);
-    color: #ffffff;
+    color: var(--text-primary);
     font-weight: var(--font-weight-normal);
     padding: var(--space-xs);
 }
@@ -2860,7 +2851,7 @@ option {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.92);
+    background-color: var(--scrim);
     backdrop-filter: blur(25px) saturate(150%);
     animation: modal-fade-in 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     /* SIN overflow aquí para que no aparezca scroll en los bordes */
@@ -2876,15 +2867,13 @@ option {
 }
 
 .modal-content {
-    background: linear-gradient(145deg, 
-        rgba(17, 17, 17, 0.95), 
-        rgba(26, 26, 26, 0.9));
+    background: var(--surface-raised);
     backdrop-filter: blur(30px) saturate(180%);
     border-radius: var(--border-radius-large);
     width: 90%;
     max-width: 1000px;
     max-height: 85vh; /* Altura máxima para que quepa en pantalla */
-    border: 2px solid rgba(0, 200, 81, 0.3);
+    border: 2px solid var(--border-strong);
     box-shadow: var(--shadow-extra-large);
     position: relative;
     overflow: hidden; /* Ocultar overflow del contenedor principal */
@@ -2895,11 +2884,9 @@ option {
 
 /* Header del modal - NO sticky, se mueve con el scroll */
 .modal-header {
-    background: linear-gradient(135deg, 
-        rgba(10, 10, 10, 0.95), 
-        rgba(26, 26, 26, 0.9));
+    background: var(--surface-sunken);
     backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(0, 200, 81, 0.2);
+    border-bottom: 1px solid var(--border-subtle);
     padding: var(--space-xl);
     display: flex;
     justify-content: space-between;
@@ -2928,7 +2915,7 @@ option {
 }
 
 .modal-body::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--surface-sunken);
     border-radius: 3px;
 }
 
@@ -2954,17 +2941,17 @@ option {
 .project-img {
     width: 100%;
     height: 200px;
-    background: linear-gradient(135deg, #222222, #333333, #2a2a2a);
+    background: linear-gradient(135deg, var(--surface-sunken), var(--border-subtle));
     border-radius: var(--border-radius-small);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #cccccc;
+    color: var(--text-secondary);
     font-size: 1.1rem;
     font-weight: var(--font-weight-medium);
     position: relative;
     overflow: hidden;
-    border: 1px solid rgba(0, 200, 81, 0.2);
+    border: 1px solid var(--border-subtle);
     transition: var(--transition);
     backdrop-filter: blur(10px);
 }
@@ -2992,15 +2979,15 @@ option {
 }
 
 .project-img:hover {
-    border-color: var(--primary-green);
+    border-color: var(--green-text);
     transform: scale(1.02);
     box-shadow: var(--shadow-primary);
-    color: var(--primary-green);
+    color: var(--green-text);
 }
 
 /* Contenido del proyecto */
 .project-details {
-    color: #d0d0d0;
+    color: var(--text-secondary);
     line-height: 1.8;
     font-weight: var(--font-weight-normal);
     font-size: 1.05rem;
@@ -3008,7 +2995,7 @@ option {
 }
 
 .project-details h3 {
-    color: var(--primary-green);
+    color: var(--green-text);
     margin: var(--space-xl) 0 var(--space-sm) 0;
     font-size: 1.4rem;
     font-weight: var(--font-weight-bold);
@@ -3045,11 +3032,11 @@ option {
 }
 
 .project-details li::marker {
-    color: var(--primary-green);
+    color: var(--green-text);
 }
 
 .project-details strong {
-    color: #ffffff;
+    color: var(--text-primary);
     font-weight: var(--font-weight-semibold);
 }
 
@@ -3060,11 +3047,11 @@ option {
 
 /* Botón de cerrar moderno */
 .modal-close {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--surface-sunken);
+    border: 1px solid var(--border-subtle);
     border-radius: 50%;
     transition: var(--transition);
-    color: #cccccc;
+    color: var(--text-secondary);
     font-size: 1.4rem;
     font-weight: normal;
     cursor: pointer;
@@ -3093,9 +3080,9 @@ option {
 }
 
 .modal-close:hover {
-    color: #000000;
+    color: var(--text-on-accent);
     transform: scale(1.1);
-    border-color: var(--primary-green);
+    border-color: var(--green-text);
     box-shadow: 0 0 20px rgba(0, 200, 81, 0.3);
 }
 
@@ -3328,7 +3315,7 @@ option {
 .lightbox-nav {
   position: absolute;
   background: rgba(255,255,255,0.9);
-  color: #333;
+  color: var(--text-secondary);
   border: 0;
   border-radius: 50%;
   cursor: pointer;
@@ -3366,7 +3353,7 @@ option {
   left: 50%;
   transform: translateX(-50%);
   background: rgba(255,255,255,0.92);
-  color: #333;
+  color: var(--text-secondary);
   padding: 6px 14px;
   border-radius: 20px;
   font: 500 14px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
@@ -3431,7 +3418,7 @@ option {
     background: var(--gradient-primary);
     border: none;
     border-radius: 50%;
-    color: #000;
+    color: var(--text-primary);
     font-size: 1.5rem;
     font-weight: bold;
     cursor: pointer;

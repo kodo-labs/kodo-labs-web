@@ -1618,16 +1618,14 @@ const modernCookieCSS = `
     right: 20px;
     max-width: 500px;
     margin: 0 auto;
-    background: linear-gradient(145deg, 
-        rgba(17, 17, 17, 0.98), 
-        rgba(26, 26, 26, 0.95));
+    background: var(--surface-raised, #FFFFFF);
     backdrop-filter: blur(25px) saturate(180%);
-    border: 2px solid rgba(0, 200, 81, 0.3);
+    border: 1px solid var(--border-strong, #C8D8CE);
     border-radius: 20px;
     padding: 0;
     z-index: 10000;
     box-shadow: 
-        0 20px 40px rgba(0, 0, 0, 0.3),
+        0 16px 36px rgba(15, 26, 20, 0.14),
         0 0 20px rgba(0, 200, 81, 0.2);
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
@@ -1705,19 +1703,19 @@ const modernCookieCSS = `
 }
 
 .cookie-text h4 {
-    color: #ffffff;
+    color: var(--text-primary, #0F1A14);
     font-size: 1.1rem;
     font-weight: 700;
     margin: 0 0 8px 0;
     line-height: 1.2;
-    background: linear-gradient(135deg, #ffffff, #00c851);
+    background: linear-gradient(135deg, var(--text-primary, #0F1A14), var(--green-text, #0A7A3C));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
 .cookie-text p {
-    color: #d0d0d0;
+    color: var(--text-secondary, #43544A);
     font-size: 0.9rem;
     margin: 0;
     line-height: 1.5;
@@ -1732,9 +1730,9 @@ const modernCookieCSS = `
 }
 
 .cookie-btn {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: #ffffff;
+    background: var(--surface-sunken, #E9F1EB);
+    border: 1px solid var(--border-subtle, #DCE7E0);
+    color: var(--text-primary, #0F1A14);
     padding: 8px 12px;
     border-radius: 25px;
     font-size: 0.85rem;
@@ -1779,9 +1777,9 @@ const modernCookieCSS = `
 }
 
 .cookie-decline:hover {
-    background: rgba(255, 107, 107, 0.2);
-    border-color: #ff6b6b;
-    color: #ff6b6b;
+    background: rgba(192, 57, 43, 0.10);
+    border-color: #C0392B;
+    color: #C0392B;
     transform: translateY(-2px);
 }
 
@@ -1801,7 +1799,7 @@ const modernCookieCSS = `
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 50%;
-    color: #ffffff;
+    color: var(--text-primary, #0F1A14);
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
@@ -1813,8 +1811,8 @@ const modernCookieCSS = `
 
 .cookie-close:hover {
     background: rgba(255, 107, 107, 0.3);
-    border-color: #ff6b6b;
-    color: #ff6b6b;
+    border-color: #C0392B;
+    color: #C0392B;
     transform: scale(1.1);
 }
 

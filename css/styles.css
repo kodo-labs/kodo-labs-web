@@ -3437,16 +3437,24 @@ option {
 /* 10 · Los casos de estudio y prototipos se veian igual que los trabajos
    entregados a clientes. La etiqueta lo aclara antes de abrir el modal. */
 .case-badge {
+    /* Sobre la imagen y no encima del titulo: asi los titulos de todas las
+       tarjetas arrancan a la misma altura, y la etiqueta se lee antes,
+       donde el ojo llega primero. */
+    position: absolute;
+    left: 14px;
+    bottom: 14px;
+    z-index: 3;
     display: inline-block;
-    margin-bottom: var(--space-xs);
-    padding: 4px 10px;
+    padding: 5px 11px;
     border-radius: 100px;
-    background: var(--surface-sunken);
+    background: rgba(255, 255, 255, 0.94);
     border: 1px solid var(--border-strong);
-    color: var(--text-secondary);
-    font-size: 0.72rem;
-    font-weight: var(--font-weight-semibold);
-    letter-spacing: 0.04em;
+    color: var(--ink, #0F1A14);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 2px 8px rgba(15, 26, 20, 0.18);
+    font-size: 0.7rem;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.05em;
     text-transform: uppercase;
 }
 
@@ -3552,4 +3560,82 @@ option {
    de los enlaces estaban centrados. */
 .nav-cta-item {
     text-align: center;
+}
+
+/* ==========================================================================
+   Miniaturas del portfolio
+   Las tarjetas mostraban un bloque verde liso con un icono: el trabajo real
+   solo se veia despues de abrir el modal. Ahora cada tarjeta lleva la
+   captura del proyecto y el icono queda como sello sobre la imagen.
+   ========================================================================== */
+
+.portfolio-image img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* En capturas de pantalla lo que identifica al producto esta arriba:
+       cabecera, navegacion, primeros datos. El recorte se ancla ahi. */
+    object-position: top center;
+    z-index: 1;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* El patron animado tenia sentido sobre el bloque de color plano;
+   sobre una captura solo la ensucia. */
+.portfolio-image::before {
+    display: none;
+}
+
+/* Velo inferior: separa la imagen del texto de la tarjeta y evita que un
+   fondo claro de la captura se funda con el fondo blanco de abajo. */
+.portfolio-image::after {
+    content: '';
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 45%;
+    background: linear-gradient(to top, rgba(15, 26, 20, 0.30), transparent);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.portfolio-badge {
+    /* Arriba a la derecha: en una captura de pantalla el logo y la
+       navegacion del producto suelen estar arriba a la izquierda, y el
+       sello los tapaba justo. */
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 3;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    color: var(--text-on-accent);
+    font-size: 1.05rem;
+    box-shadow: 0 4px 12px rgba(15, 26, 20, 0.25);
+    transition: var(--transition-fast);
+}
+
+.portfolio-item:hover .portfolio-image img,
+.portfolio-item:focus-visible .portfolio-image img {
+    transform: scale(1.05);
+}
+
+.portfolio-item:hover .portfolio-badge {
+    transform: scale(1.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .portfolio-image img,
+    .portfolio-badge {
+        transition: none;
+    }
+    .portfolio-item:hover .portfolio-image img {
+        transform: none;
+    }
 }

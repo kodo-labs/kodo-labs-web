@@ -3639,3 +3639,76 @@ option {
         transform: none;
     }
 }
+
+/* ==========================================================================
+   Contacto directo por WhatsApp
+   Los estilos de .whatsapp-float ya existian en la hoja pero el boton nunca
+   se habia agregado al HTML. Aca se ajusta su tamano y se resuelve el choque
+   con el boton de volver arriba, que ocupaba la misma esquina.
+   ========================================================================== */
+
+.whatsapp-float {
+    /* La regla original declaraba position: fixed y mas abajo, en el mismo
+       bloque, position: relative. Ganaba la ultima, asi que el boton quedaba
+       en el flujo del documento en vez de anclado a la pantalla. */
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    right: 20px;
+    bottom: 20px;
+    font-size: 1.9rem;
+    color: var(--text-on-accent);
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(0, 200, 81, 0.32);
+}
+
+.whatsapp-float:hover,
+.whatsapp-float:focus-visible {
+    color: var(--text-on-accent);
+}
+
+/* El de volver arriba sube por encima del de WhatsApp y se alinea con el. */
+.scroll-to-top {
+    position: fixed;
+    right: 20px;
+    bottom: 92px;
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    /* Neutro a proposito: apilado justo encima del de WhatsApp, si tambien
+       fuera verde competirian entre si. El de contacto tiene que ganar. */
+    background: var(--surface-raised);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-strong);
+    cursor: pointer;
+    z-index: 1070;
+    box-shadow: 0 4px 14px rgba(15, 26, 20, 0.12);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 54px;
+        height: 54px;
+        right: 14px;
+        bottom: 14px;
+        font-size: 1.7rem;
+    }
+
+    .scroll-to-top {
+        right: 18px;
+        bottom: 78px;
+    }
+}
+
+/* Aclaracion bajo el numero, en la tarjeta de contacto. */
+.contact-hint {
+    margin-top: 2px;
+    font-size: 0.86rem;
+    color: var(--text-muted);
+}

@@ -316,26 +316,14 @@ KodoLabs.Navigation = {
         scrollToTopBtn.setAttribute('aria-label', 'Ir arriba');
         
         // Estilos inline para el botón
+        // Posicion, tamano y colores viven en la hoja de estilos (.scroll-to-top).
+        // Antes se escribian aca como estilos en linea, que le ganan a cualquier
+        // regla CSS: por eso el boton ignoraba los ajustes de la hoja y se
+        // superponia con el de WhatsApp. Aca queda solo el estado inicial, que
+        // es lo que el JS realmente maneja.
         Object.assign(scrollToTopBtn.style, {
-            position: 'fixed',
-            bottom: '50px',
-            right: '30px',
-            width: '55px',
-            height: '55px',
-            borderRadius: '50%',
-            background: 'linear-gradient(135deg, #00c851, #1db954)',
-            color: '#000',
-            border: 'none',
-            cursor: 'pointer',
             opacity: '0',
-            visibility: 'hidden',
-            transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-            zIndex: '1070',
-            boxShadow: '0 10px 30px rgba(0, 200, 81, 0.3)',
-            backdropFilter: 'blur(10px)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
+            visibility: 'hidden'
         });
         
         document.body.appendChild(scrollToTopBtn);

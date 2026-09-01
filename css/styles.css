@@ -3944,3 +3944,72 @@ option {
         min-height: 40px;
     }
 }
+
+/* ==========================================================================
+   Los elementos decorativos no interceptan clics
+   .service-card::after es una capa absoluta que cubre toda la tarjeta para dar
+   un brillo sutil. Al no declarar pointer-events se tragaba todos los clics:
+   los cuatro botones "Consultar por WhatsApp" de los servicios estaban muertos
+   desde que se agregaron. Lo mismo vale para el resto de las capas decorativas
+   del sitio, que existen solo para verse y nunca deberian recibir el cursor.
+   ========================================================================== */
+
+.service-card::before,
+.service-card::after,
+.portfolio-item::before,
+.portfolio-item::after,
+.portfolio-image::before,
+.portfolio-image::after,
+.contact-item::before,
+.contact-form::before,
+.modal-content::before,
+.hero::before,
+.hero::after,
+.header::before,
+header::before,
+footer::before,
+.btn-primary::before,
+.btn-secondary::before,
+.cta-button::before,
+.cta-button::after,
+.submit-btn::before,
+.submit-btn::after,
+.social-links a::before,
+.tag::before,
+.nav-links a::before,
+.nav-links a::after,
+.stat-item::before,
+.success-message::before,
+.error-message::before,
+.img-overlay {
+    pointer-events: none;
+}
+
+/* El texto del boton tiene que quedar por encima de cualquier capa. */
+.cta-button,
+.btn-primary,
+.btn-secondary,
+.submit-btn,
+.service-cta,
+.modal-cta {
+    isolation: isolate;
+}
+
+/* ==========================================================================
+   El hover del CTA borraba el texto
+   .cta-button::after pasaba de opacity 0 a 1 con un degradado opaco encima del
+   boton. Al ser una capa absoluta se dibujaba por arriba del texto, asi que al
+   apoyar el mouse (o al tocar en el celular, donde el estado queda pegado) el
+   boton quedaba como una mancha naranja y verde sin ninguna palabra.
+   Se cambia el color del boton en si, sin capa encima.
+   ========================================================================== */
+
+.cta-button::after {
+    content: none;
+}
+
+.cta-button:hover,
+.cta-button:focus-visible {
+    background: var(--gradient-warm);
+    color: var(--text-on-accent);
+}

@@ -3712,3 +3712,99 @@ option {
     font-size: 0.86rem;
     color: var(--text-muted);
 }
+
+/* ==========================================================================
+   Llamados a la accion por WhatsApp
+   Las tarjetas de servicio describian el servicio y ahi terminaban: quien se
+   interesaba tenia que scrollear hasta contacto y volver a explicar que
+   queria. Ahora cada una lleva a WhatsApp con el servicio ya escrito en el
+   mensaje. Lo mismo al cierre de cada modal de proyecto, donde el texto
+   invitaba a contactar pero no habia donde hacer clic.
+   ========================================================================== */
+
+/* La tarjeta pasa a columna para que el boton quede pegado abajo y todos
+   los botones de la fila queden a la misma altura, sin importar cuanto
+   texto tenga cada una. */
+.service-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card .service-features {
+    margin-bottom: var(--space-lg);
+}
+
+.service-cta {
+    /* Ancho completo dentro de la tarjeta: "Consultar por WhatsApp" no entra
+       en una linea si el boton se ajusta al texto, y partido en dos se ve
+       torpe. Ademas asi los cuatro quedan identicos. */
+    margin-top: auto;
+    align-self: stretch;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 48px;
+    padding: 13px 16px;
+    border-radius: 100px;
+    background: var(--gradient-primary);
+    color: var(--text-on-accent);
+    font-family: var(--font-primary);
+    font-size: 0.92rem;
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(0, 200, 81, 0.24);
+    transition: var(--transition-fast);
+}
+
+.service-cta:hover,
+.service-cta:focus-visible {
+    color: var(--text-on-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(0, 200, 81, 0.34);
+}
+
+.modal-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: var(--space-md);
+    min-height: 52px;
+    padding: 15px 26px;
+    white-space: nowrap;
+    border-radius: 100px;
+    background: var(--gradient-primary);
+    color: var(--text-on-accent);
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    font-weight: var(--font-weight-bold);
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(0, 200, 81, 0.24);
+    transition: var(--transition-fast);
+}
+
+.modal-cta:hover,
+.modal-cta:focus-visible {
+    color: var(--text-on-accent);
+    transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .service-cta,
+    .modal-cta {
+        transition: none;
+    }
+    .service-cta:hover,
+    .modal-cta:hover {
+        transform: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-cta,
+    .modal-cta {
+        width: 100%;
+    }
+}

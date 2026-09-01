@@ -3808,3 +3808,139 @@ option {
         width: 100%;
     }
 }
+
+/* ==========================================================================
+   Version movil orientada a conversion
+   La mayoria entra desde el celular. Antes: 15 pantallas de scroll, el
+   portfolio a 4,6 pantallas y el boton principal del hero apuntando al
+   formulario, que estaba a 12,3 pantallas de distancia.
+   ========================================================================== */
+
+/* --- Rubros: reemplaza la grilla de lenguajes, justo debajo del hero --- */
+.industries {
+    padding: var(--space-xl) 0;
+    background: var(--surface-sunken);
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.industries-title {
+    margin: 0 0 var(--space-lg);
+    text-align: center;
+    font-size: clamp(1.15rem, 4vw, 1.5rem);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+}
+
+.industries-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.industry-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 11px 18px;
+    border-radius: 100px;
+    background: var(--surface-raised);
+    border: 1px solid var(--border-strong);
+    color: var(--text-primary);
+    font-family: var(--font-primary);
+    font-size: 0.92rem;
+    font-weight: var(--font-weight-medium);
+}
+
+.industry-item i {
+    color: var(--green-text);
+    font-size: 1rem;
+}
+
+/* --- Linea de confianza bajo los botones del hero --- */
+.hero-trust {
+    list-style: none;
+    margin: var(--space-lg) 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 20px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.hero-trust li {
+    position: relative;
+    padding-left: 18px;
+}
+
+.hero-trust li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--primary-green);
+}
+
+@media (max-width: 768px) {
+    /* El hero ocupaba casi una pantalla completa antes de mostrar nada mas. */
+    .hero {
+        min-height: auto;
+        padding: 110px 0 60px;
+    }
+
+    .hero-trust {
+        /* En columna, centrar cada item por separado dejaba los puntitos a
+           distinta altura horizontal. Se centra el bloque entero y los items
+           se alinean a la izquierda entre si. */
+        flex-direction: column;
+        align-items: flex-start;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        gap: 7px;
+        margin-top: var(--space-md);
+    }
+
+    .industries {
+        padding: var(--space-lg) 0;
+    }
+
+    .industries-grid {
+        gap: 8px;
+    }
+
+    .industry-item {
+        padding: 9px 14px;
+        font-size: 0.85rem;
+    }
+
+    /* Las tarjetas de servicio median 450 px cada una: cuatro sumaban 2,6
+       pantallas antes de llegar al portfolio, que es la prueba del trabajo. */
+    .service-card {
+        padding: var(--space-lg) var(--space-md);
+    }
+
+    .service-card h3 {
+        font-size: 1.25rem;
+    }
+
+    .service-features {
+        margin-bottom: var(--space-md);
+    }
+
+    /* El pie ocupaba 1,6 pantallas. */
+    .footer-section > a {
+        min-height: 40px;
+    }
+}

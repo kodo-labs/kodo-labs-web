@@ -53,7 +53,11 @@ const KodoLabs = {
         },
         
         // Animación de números con easing
-        animateCounter(element, start, end, duration = 2000, easing = 'easeOutQuart') {
+        // El sufijo ("+", "%") es parte de la animacion. Antes se volvia a poner
+        // con un setTimeout aparte de 2 segundos, asi que durante toda la
+        // animacion el numero se veia sin el, y si algo reordenaba los tiempos
+        // podia quedarse sin el para siempre.
+        animateCounter(element, start, end, duration = 2000, easing = 'easeOutQuart', suffix = '') {
             const startTime = performance.now();
             const change = end - start;
             
@@ -68,12 +72,12 @@ const KodoLabs = {
                 const easedProgress = easingFunctions[easing](progress);
                 const current = Math.round(start + (change * easedProgress));
                 
-                element.textContent = current;
-                
+                element.textContent = current + suffix;
+
                 if (progress < 1) {
                     requestAnimationFrame(animate);
                 } else {
-                    element.textContent = end;
+                    element.textContent = end + suffix;
                 }
             };
             
@@ -146,6 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
         KodoLabs.Animations.init();
         KodoLabs.Forms.init();
         KodoLabs.Modals.init();
+        KodoLabs.Industries.init();
         KodoLabs.TechShowcase.init();
         KodoLabs.StatsCounter.init();
         KodoLabs.Performance.init();
@@ -955,65 +960,65 @@ KodoLabs.Modals = {
     }
 };
 
-// ===== MÓDULO TECH SHOWCASE ACTUALIZADO =====
+// ===== MODULO: RUBROS CON LOS QUE TRABAJAMOS =====
+// Antes aca vivia una grilla con doce nombres de lenguajes y herramientas
+// (Python, React, PostgreSQL, Tailwind...). Ocupaba 636 px justo despues del
+// hero, o sea la segunda pantalla que ve alguien desde el celular, y a quien
+// compra no le dice nada: no sabe si eso resuelve su problema.
+//
+// En su lugar va el tipo de negocio para el que ya trabajaron, sacado de los
+// proyectos reales del portfolio. Un dueno de taller ve "Talleres y servicios"
+// y entiende en un segundo que esto es para el.
+KodoLabs.Industries = {
+    init() {
+        this.createSection();
+    },
+
+    createSection() {
+        if (document.querySelector('.industries')) return;
+
+        const rubros = [
+            { icon: 'fas fa-hotel',           nombre: 'Hoteles y alojamientos' },
+            { icon: 'fas fa-store',           nombre: 'Comercios y supermercados' },
+            { icon: 'fas fa-calendar-check',  nombre: 'Consultorios y clínicas' },
+            { icon: 'fas fa-tools',           nombre: 'Talleres y servicios' },
+            { icon: 'fas fa-shopping-bag',    nombre: 'Tiendas online' }
+        ];
+
+        const seccion = document.createElement('section');
+        seccion.className = 'industries';
+        seccion.setAttribute('aria-labelledby', 'industries-title');
+        seccion.innerHTML = `
+            <div class="container">
+                <h2 id="industries-title" class="industries-title">Trabajamos con negocios como el tuyo</h2>
+                <ul class="industries-grid">
+                    ${rubros.map(r => `
+                        <li class="industry-item">
+                            <i class="${r.icon}" aria-hidden="true"></i>
+                            <span>${r.nombre}</span>
+                        </li>
+                    `).join('')}
+                </ul>
+            </div>
+        `;
+
+        const hero = document.querySelector('.hero');
+        if (hero && hero.parentNode) {
+            hero.parentNode.insertBefore(seccion, hero.nextSibling);
+        }
+    }
+};
+
 KodoLabs.TechShowcase = {
     init() {
         this.createTechSection();
         this.setupTechAnimations();
     },
-    
+
     createTechSection() {
-        // Verificar si ya existe la sección
-        if (document.querySelector('.tech-showcase')) return;
-        
-const techData = [
-  { icon: 'fab fa-python', name: 'Python', color: '#3776AB' },
-  { icon: 'fab fa-node-js', name: 'Node.js', color: '#339933' },
-  { icon: 'fab fa-react', name: 'React', color: '#61DAFB' },
-  { icon: 'fas fa-database', name: 'PostgreSQL', color: '#336791' },
-  { icon: 'fab fa-js-square', name: 'JavaScript', color: '#F7DF1E' },
-  { icon: 'fab fa-css3-alt', name: 'CSS', color: '#1572B6' },
-  { icon: 'fab fa-aws', name: 'AWS', color: '#FF9900' },
-  { icon: 'fas fa-wind', name: 'Tailwind', color: '#06B6D4' },
-  { icon: 'fab fa-js-square', name: 'TypeScript', color: '#3178C6', customIcon: true },
-  { icon: 'fab fa-github', name: 'GitHub', color: '#181717' },
-
-  // 👇 añadimos estas dos para llegar a 12
-  { icon: 'fas fa-bolt', name: 'Next.js', color: '#000000' },
-  { icon: 'fas fa-leaf', name: 'MongoDB', color: '#47A248' }
-];
-
-        
-        const techSection = document.createElement('section');
-        techSection.className = 'tech-showcase';
-        techSection.innerHTML = `
-            <div class="container">
-                <div class="tech-grid">
-                    ${techData.map(tech => {
-                        // Para TypeScript, usar un ícono personalizado si está disponible
-                        let iconClass = tech.icon;
-                        if (tech.name === 'TypeScript') {
-                            iconClass = 'fas fa-code'; // Alternativa si no hay ícono específico de TypeScript
-                        }
-                        
-                        return `
-                            <div class="tech-item" data-tech="${tech.name.toLowerCase()}">
-                                <i class="${iconClass}" style="color: ${tech.color}"></i>
-                                <div>${tech.name}</div>
-                            </div>
-                        `;
-                    }).join('')}
-                </div>
-            </div>
-        `;
-        
-        // Insertar después del hero
-        const hero = document.querySelector('.hero');
-        if (hero && hero.parentNode) {
-            hero.parentNode.insertBefore(techSection, hero.nextSibling);
-        }
+        // Retirado: ver KodoLabs.Industries.
     },
-    
+
     setupTechAnimations() {
         const techItems = document.querySelectorAll('.tech-item');
         
@@ -1212,7 +1217,7 @@ KodoLabs.StatsCounter = {
         const statsData = [
             { number: 50, label: 'Proyectos Completados', suffix: '+' },
             { number: 25, label: 'Clientes Satisfechos', suffix: '+' },
-            { number: 100, label: 'Taza de Éxito', suffix: '%' },
+            { number: 100, label: 'Tasa de Éxito', suffix: '%' },
             { number: 2, label: 'Años de Experiencia', suffix: '+' }
         ];
         
@@ -1223,7 +1228,10 @@ KodoLabs.StatsCounter = {
                 <div class="stats-grid">
                     ${statsData.map(stat => `
                         <div class="stat-item">
-                            <div class="stat-number" data-count="${stat.number}" data-suffix="${stat.suffix}">0</div>
+                            <!-- El valor real va desde el principio. Antes arrancaba en 0 y
+                                 solo subia al entrar en pantalla: quien scrolleaba rapido en
+                                 el celular veia "0 Proyectos Completados". -->
+                            <div class="stat-number" data-count="${stat.number}" data-suffix="${stat.suffix}">${stat.number}${stat.suffix}</div>
                             <div class="stat-label">${stat.label}</div>
                         </div>
                     `).join('')}
@@ -1270,12 +1278,7 @@ KodoLabs.StatsCounter = {
             const suffix = element.dataset.suffix || '';
             
             setTimeout(() => {
-                KodoLabs.utils.animateCounter(element, 0, targetNumber, 2000, 'easeOutQuart');
-                
-                // Añadir sufijo después de la animación
-                setTimeout(() => {
-                    element.textContent = targetNumber + suffix;
-                }, 2000);
+                KodoLabs.utils.animateCounter(element, 0, targetNumber, 2000, 'easeOutQuart', suffix);
             }, index * 200);
         });
         

@@ -421,7 +421,7 @@ KodoLabs.ScrollEffects = {
     
     setupScrollReveal() {
         const revealElements = document.querySelectorAll(
-            '.service-card, .portfolio-item, .about-text, .contact-info, .stat-item, .tech-item'
+            '.service-card, .portfolio-item, .about-text, .contact-info, .stat-item, .industry-item, .industries-title'
         );
         
         const observerOptions = {

@@ -580,11 +580,11 @@ a.logo:focus {
     right: 0;
     bottom: 0;
     background-image: 
-        linear-gradient(rgba(0, 200, 81, 0.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 200, 81, 0.08) 1px, transparent 1px);
+        linear-gradient(rgba(0, 200, 81, 0.14) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 200, 81, 0.14) 1px, transparent 1px);
     background-size: 60px 60px;
     animation: grid-move 20s linear infinite;
-    opacity: 0.6;
+    opacity: 0.85;
     mask: radial-gradient(ellipse at center, transparent 10%, black 70%);
     -webkit-mask: radial-gradient(ellipse at center, transparent 10%, black 70%);
 }
@@ -603,8 +603,9 @@ a.logo:focus {
     width: 160%;
     height: 160%;
     background-image: 
-        radial-gradient(circle at 18% 22%, rgba(0, 200, 81, 0.10) 0%, transparent 45%),
-        radial-gradient(circle at 82% 78%, rgba(0, 200, 81, 0.07) 0%, transparent 45%);
+        radial-gradient(circle at 18% 22%, rgba(0, 200, 81, 0.20) 0%, transparent 46%),
+        radial-gradient(circle at 82% 74%, rgba(0, 200, 81, 0.15) 0%, transparent 46%),
+        radial-gradient(circle at 60% 12%, rgba(0, 212, 255, 0.10) 0%, transparent 42%);
     animation: floating-particles 12s ease-in-out infinite;
     will-change: transform;
 }
@@ -4012,4 +4013,73 @@ footer::before,
 .cta-button:focus-visible {
     background: var(--gradient-warm);
     color: var(--text-on-accent);
+}
+
+/* ==========================================================================
+   Movimiento de fondo y entrada de los rubros
+   Las animaciones del hero (grid-move y floating-particles) seguian corriendo
+   despues de pasar a tema claro, pero con los colores tan bajados el
+   movimiento era imperceptible. Se sube la intensidad hasta que se note sin
+   distraer de lo que hay que leer.
+   ========================================================================== */
+
+/* La franja de rubros respira despacio, en lugar de ser un bloque plano. */
+.industries {
+    position: relative;
+    overflow: hidden;
+}
+
+.industries::before {
+    content: '';
+    position: absolute;
+    inset: -40% -10%;
+    pointer-events: none;
+    background-image:
+        radial-gradient(circle at 22% 50%, rgba(0, 200, 81, 0.14) 0%, transparent 40%),
+        radial-gradient(circle at 78% 50%, rgba(0, 212, 255, 0.10) 0%, transparent 40%);
+    animation: industries-drift 18s ease-in-out infinite;
+}
+
+@keyframes industries-drift {
+    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.75; }
+    50%      { transform: translate(-26px, 10px) scale(1.06); opacity: 1; }
+}
+
+.industries .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Las pastillas entran escalonadas y responden al cursor. */
+.industry-item {
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.25s ease;
+}
+
+.industry-item:hover {
+    transform: translateY(-3px);
+    border-color: var(--primary-green);
+    box-shadow: 0 8px 18px rgba(0, 200, 81, 0.18);
+}
+
+.industry-item i {
+    transition: transform 0.25s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.industry-item:hover i {
+    transform: scale(1.15);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .industries::before {
+        animation: none;
+    }
+    .industry-item,
+    .industry-item i {
+        transition: none;
+    }
+    .industry-item:hover {
+        transform: none;
+    }
 }

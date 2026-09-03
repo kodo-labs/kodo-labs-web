@@ -3245,6 +3245,9 @@ option {
     );
     transition: left 0.6s ease;
     z-index: 2;
+    /* Sin esto seguia corriendo el project-pattern de la version anterior y
+       la franja se desplazaba sola en diagonal, sin apoyar el mouse. */
+    animation: none;
 }
 
 .project-img:hover::before {
@@ -3996,6 +3999,28 @@ footer::before,
     isolation: isolate;
 }
 
+/* Dos acciones al pie del modal: el WhatsApp y, cuando el proyecto esta
+   publicado, el enlace al sitio real. */
+.modal-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+
+.modal-cta--outline {
+    background: transparent;
+    color: var(--green-text);
+    border: 2px solid var(--green-text);
+    box-shadow: none;
+}
+
+.modal-cta--outline:hover,
+.modal-cta--outline:focus-visible {
+    color: var(--green-text);
+    background: rgba(0, 200, 81, 0.08);
+}
+
 /* ==========================================================================
    El hover del CTA borraba el texto
    .cta-button::after pasaba de opacity 0 a 1 con un degradado opaco encima del
@@ -4231,6 +4256,9 @@ footer::before,
     background: linear-gradient(to bottom, rgba(6, 12, 9, 0.45), transparent);
     z-index: 2;
     display: block;
+    /* Heredaba la animacion tech-pattern de mas arriba y el velo daba una
+       vuelta completa cada diez segundos sobre la captura. */
+    animation: none;
 }
 
 .portfolio-num {

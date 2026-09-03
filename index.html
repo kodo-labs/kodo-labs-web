@@ -303,12 +303,12 @@
                 </div>
                 <div class="portfolio-grid" role="grid" aria-label="Proyectos realizados">
                     
-                    <!-- PROYECTO REAL 1: Sistema Integral Hotelero -->
+                    <!-- PROYECTO REAL 1: Web para Hotel Santino -->
                     <article class="portfolio-item" role="gridcell" tabindex="0"
-                             onclick="openModal('hotel-modal')"
-                             aria-labelledby="project-hotel-title"
-                             aria-describedby="project-hotel-desc"
-                             data-modal="hotel-modal">
+                             onclick="openModal('hotel-web-modal')"
+                             aria-labelledby="project-hotel-web-title"
+                             aria-describedby="project-hotel-web-desc"
+                             data-modal="hotel-web-modal">
                         <div class="portfolio-image">
                             <span class="portfolio-num" aria-hidden="true">01</span>
                             <img src="images/portfolio/thumbs/hotel.jpg"
@@ -317,25 +317,50 @@
                                  loading="lazy" decoding="async">
                         </div>
                         <div class="portfolio-content">
-                            <h3 id="project-hotel-title">Sistema Integral Hotelero</h3>
-                            <p id="project-hotel-desc" class="sr-only">Solución completa que incluye sistema de gestión interna y sitio web corporativo con motor de reservas online integrado.</p>
-                            <div class="portfolio-tags" aria-label="Qué incluye el sistema">
-                                <span class="tag">Reservas online</span>
-                                <span class="tag">Check-in digital</span>
-                                <span class="tag">Gestión de habitaciones</span>
-                                <span class="tag">Cobros online</span>
+                            <h3 id="project-hotel-web-title">Web para Hotel Santino</h3>
+                            <p id="project-hotel-web-desc" class="sr-only">Sitio web del Complejo Santino, con habitaciones, galería, servicios y consultas que llegan directo al WhatsApp del hotel.</p>
+                            <div class="portfolio-tags" aria-label="Qué incluye el sitio">
+                                <span class="tag">Sitio a medida</span>
+                                <span class="tag">Se ve bien en el celular</span>
+                                <span class="tag">Consultas por WhatsApp</span>
+                                <span class="tag">Galería y habitaciones</span>
                             </div>
                         </div>
                     </article>
-                    
-                    <!-- PROYECTO REAL 2: Sistema de Stock para Supermercado -->
+
+                    <!-- PROYECTO REAL 2: Sistema de Gestión para Hotel Santino -->
+                    <article class="portfolio-item" role="gridcell" tabindex="0"
+                             onclick="openModal('hotel-sistema-modal')"
+                             aria-labelledby="project-hotel-sistema-title"
+                             aria-describedby="project-hotel-sistema-desc"
+                             data-modal="hotel-sistema-modal">
+                        <div class="portfolio-image">
+                            <span class="portfolio-num" aria-hidden="true">02</span>
+                            <img src="images/portfolio/thumbs/hotel-sistema.jpg"
+                                 alt=""
+                                 width="720" height="480"
+                                 loading="lazy" decoding="async">
+                        </div>
+                        <div class="portfolio-content">
+                            <h3 id="project-hotel-sistema-title">Sistema de Gestión para Hotel Santino</h3>
+                            <p id="project-hotel-sistema-desc" class="sr-only">Panel interno del Complejo Santino para administrar reservas, habitaciones, pedidos del restobar, stock y el balance diario.</p>
+                            <div class="portfolio-tags" aria-label="Qué incluye el sistema">
+                                <span class="tag">Panel de gestión</span>
+                                <span class="tag">Reservas y check-out</span>
+                                <span class="tag">Restobar y stock</span>
+                                <span class="tag">Analytics de ocupación</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- PROYECTO REAL 3: Sistema de Stock para Supermercado -->
                     <article class="portfolio-item" role="gridcell" tabindex="0"
                              onclick="openModal('stock-modal')"
                              aria-labelledby="project-stock-title"
                              aria-describedby="project-stock-desc"
                              data-modal="stock-modal">
                         <div class="portfolio-image">
-                            <span class="portfolio-num" aria-hidden="true">02</span>
+                            <span class="portfolio-num" aria-hidden="true">03</span>
                             <img src="images/portfolio/thumbs/stock.jpg"
                                  alt=""
                                  width="720" height="480"
@@ -360,7 +385,7 @@
                              aria-describedby="project-ecommerce-desc"
                              data-modal="ecommerce-modal">
                         <div class="portfolio-image">
-                            <span class="portfolio-num" aria-hidden="true">03</span>
+                            <span class="portfolio-num" aria-hidden="true">04</span>
                             <img src="images/portfolio/thumbs/ecommerce.jpg"
                                  alt=""
                                  width="720" height="480"
@@ -386,7 +411,7 @@
                              aria-describedby="project-app-desc"
                              data-modal="mobile-app-modal">
                         <div class="portfolio-image">
-                            <span class="portfolio-num" aria-hidden="true">04</span>
+                            <span class="portfolio-num" aria-hidden="true">05</span>
                             <img src="images/portfolio/thumbs/delivery.jpg"
                                  alt=""
                                  width="720" height="480"
@@ -412,7 +437,7 @@
                              aria-describedby="project-turnos-desc"
                              data-modal="turnos-modal">
                         <div class="portfolio-image">
-                            <span class="portfolio-num" aria-hidden="true">05</span>
+                            <span class="portfolio-num" aria-hidden="true">06</span>
                             <img src="images/portfolio/thumbs/turnos.jpg"
                                  alt=""
                                  width="720" height="480"
@@ -438,7 +463,7 @@
                              aria-describedby="project-taller-desc"
                              data-modal="taller-modal">
                         <div class="portfolio-image">
-                            <span class="portfolio-num" aria-hidden="true">06</span>
+                            <span class="portfolio-num" aria-hidden="true">07</span>
                             <img src="images/portfolio/thumbs/taller.jpg"
                                  alt=""
                                  width="720" height="480"
@@ -697,67 +722,129 @@
 
 <!-- REEMPLAZA TODOS LOS MODALES EN TU HTML CON ESTOS: -->
 
-<!-- Modal: Sistema Integral Hotelero - CORREGIDO -->
-<div id="hotel-modal" class="modal" role="dialog" aria-labelledby="hotel-modal-title" aria-modal="true">
+<!-- Modal: Web para Hotel Santino -->
+<div id="hotel-web-modal" class="modal" role="dialog" aria-labelledby="hotel-web-modal-title" aria-modal="true">
     <div class="modal-content">
         <div class="modal-header">
-            <h2 id="hotel-modal-title">Sistema Integral Hotelero</h2>
-            <button class="modal-close" onclick="closeModal('hotel-modal')" aria-label="Cerrar modal">
+            <h2 id="hotel-web-modal-title">Web para Hotel Santino</h2>
+            <button class="modal-close" onclick="closeModal('hotel-web-modal')" aria-label="Cerrar modal">
                 <i class="fas fa-times" aria-hidden="true"></i>
             </button>
         </div>
         <div class="modal-body">
             <div class="project-images">
-                <div class="project-img" onclick="openLightbox(0, 'hotel-images')">
-                    <img src="images/portfolio/hotel/dashboard-principal.jpg" alt="Panel principal - Panel de control hotelero" width="1600" height="812" loading="lazy" decoding="async">
-                    <div class="img-overlay">Panel de gestión</div>
+                <div class="project-img" onclick="openLightbox(0, 'hotel-web-images')">
+                    <img src="images/portfolio/hotel/sitio-web.jpg" alt="Portada del sitio del Complejo Santino con los accesos a disponibilidad y habitaciones" width="1122" height="1402" loading="lazy" decoding="async">
+                    <div class="img-overlay">Portada del sitio</div>
                 </div>
-                <div class="project-img" onclick="openLightbox(1, 'hotel-images')">
-                    <img src="images/portfolio/hotel/sistema-reservas.jpg" alt="Sistema de Reservas - gestión de reservas en hotel" width="1395" height="1126" loading="lazy" decoding="async">
-                    <div class="img-overlay">Sistema de Reservas</div>
+                <div class="project-img" onclick="openLightbox(1, 'hotel-web-images')">
+                    <img src="images/portfolio/hotel/servicios.jpg" alt="Sección de servicios del hotel" width="1402" height="1122" loading="lazy" decoding="async">
+                    <div class="img-overlay">Servicios del complejo</div>
                 </div>
-                <div class="project-img" onclick="openLightbox(2, 'hotel-images')">
-                    <img src="images/portfolio/hotel/sitio-web.jpg" alt="Sitio Web Corporativo - Página web hotel" width="1600" height="971" loading="lazy" decoding="async">
-                    <div class="img-overlay">Sitio Web Corporativo</div>
-                </div>
-                <div class="project-img" onclick="openLightbox(3, 'hotel-images')">
-                    <img src="images/portfolio/hotel/motor-reservas.jpg" alt="Motor de Reservas Online - integración online" width="1287" height="1187" loading="lazy" decoding="async">
-                    <div class="img-overlay">Motor de Reservas Online</div>
+                <div class="project-img" onclick="openLightbox(2, 'hotel-web-images')">
+                    <img src="images/portfolio/hotel/contacto.jpg" alt="Sección de contacto con mapa y formulario de consulta" width="1122" height="1402" loading="lazy" decoding="async">
+                    <div class="img-overlay">Contacto y ubicación</div>
             </div>
             </div>
-            
+
             <div class="project-details">
                 <h3>Descripción del Proyecto</h3>
-                <p>Desarrollamos una solución integral que combina un sistema de gestión hotelera completo con un sitio web corporativo profesional. El proyecto incluye tanto la administración interna del hotel como la presencia digital con motor de reservas integrado.</p>
-                
+                <p>El sitio público del Complejo Santino, un hotel y restobar sobre la Ruta 14. La idea era simple: que alguien que pasa por la ruta entienda en diez segundos qué ofrece el lugar y pueda consultar sin salir de la página. Cada sección empuja hacia lo mismo, reservar o escribir por WhatsApp.</p>
+
                 <h3>Características Principales</h3>
                 <ul>
-                    <li><strong>Sistema de Gestión Interno:</strong> Panel administrativo completo para operaciones diarias</li>
-                    <li><strong>Motor de Reservas Online:</strong> Sistema de reservas integrado en el sitio web</li>
-                    <li><strong>Gestión de Habitaciones:</strong> Control de disponibilidad y estado en tiempo real</li>
-                    <li><strong>Check-in/Check-out Digital:</strong> Proceso optimizado para huéspedes</li>
-                    <li><strong>Sitio web del hotel:</strong> Profesional y bien visto en el celular</li>
-                    <li><strong>Gestión de Huéspedes:</strong> Base de datos integrada con historial</li>
-                    <li><strong>Reportes:</strong> Ocupación e ingresos, siempre a la vista</li>
-                    <li><strong>Cobros online:</strong> Pago seguro al reservar</li>
+                    <li><strong>Portada con lo importante arriba:</strong> ubicación, propuesta y accesos directos a disponibilidad y habitaciones</li>
+                    <li><strong>Habitaciones y galería:</strong> fotos reales del parque, las cabañas y el restobar</li>
+                    <li><strong>Servicios a la vista:</strong> piscina, restaurante, cochera cubierta, internet satelital y pet friendly</li>
+                    <li><strong>Formulario que abre WhatsApp:</strong> el huésped completa los datos y le llega el mensaje ya escrito al hotel</li>
+                    <li><strong>Mapa de Google integrado:</strong> con la ficha del lugar y la referencia de la rotonda</li>
+                    <li><strong>Botón flotante de WhatsApp:</strong> disponible en cualquier punto de la página</li>
+                    <li><strong>Pensado para el celular:</strong> la mayoría entra desde el teléfono, en la ruta</li>
+                    <li><strong>Preparado para Google:</strong> títulos, textos y datos del negocio ordenados para que el hotel aparezca al buscarlo</li>
                 </ul>
-                
+
                 <h3>Resultados Obtenidos</h3>
                 <ul>
                     <li>📈 <strong>60% incremento</strong> en reservas online</li>
+                    <li>😊 <strong>Mayor satisfacción</strong> del cliente con reservas online</li>
+                    <li>💬 <strong>Consultas que llegan completas</strong> al WhatsApp del hotel, sin ida y vuelta</li>
+                </ul>
+
+                <h3>Proceso de Desarrollo</h3>
+                <p>Arrancamos ordenando qué tenía que ver el huésped primero y qué podía esperar. Después armamos la identidad del sitio con las fotos del complejo, y al final conectamos todo con el WhatsApp del hotel para que ninguna consulta se pierda. Entregas parciales, con el dueño validando cada sección.</p>
+
+                <p><strong>Cliente:</strong> Complejo Santino, Santo Tomé (Corrientes) | <strong>Estado:</strong> En producción</p>
+
+
+                <a class="modal-cta" href="https://wa.me/5493765246043?text=%C2%A1Hola%21%20Vi%20%2AWeb%20para%20Hotel%20Santino%2A%20en%20la%20web%20de%20Kodo%20Labs%20y%20quer%C3%ADa%20consultar%20por%20un%20proyecto%20as%C3%AD." target="_blank" rel="noopener">
+                    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                    Quiero algo así para mi negocio
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal: Sistema de Gestión para Hotel Santino -->
+<div id="hotel-sistema-modal" class="modal" role="dialog" aria-labelledby="hotel-sistema-modal-title" aria-modal="true">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="hotel-sistema-modal-title">Sistema de Gestión para Hotel Santino</h2>
+            <button class="modal-close" onclick="closeModal('hotel-sistema-modal')" aria-label="Cerrar modal">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="project-images">
+                <div class="project-img" onclick="openLightbox(0, 'hotel-sistema-images')">
+                    <img src="images/portfolio/hotel-sistema/panel-ejecutivo.jpg" alt="Panel ejecutivo con los ingresos del día y los accesos a cada módulo del sistema" width="1536" height="1024" loading="lazy" decoding="async">
+                    <div class="img-overlay">Panel ejecutivo</div>
+                </div>
+                <div class="project-img" onclick="openLightbox(1, 'hotel-sistema-images')">
+                    <img src="images/portfolio/hotel-sistema/habitaciones.jpg" alt="Listado de las quince habitaciones con capacidad, tipo y precio por noche" width="1448" height="1086" loading="lazy" decoding="async">
+                    <div class="img-overlay">Habitaciones y tarifas</div>
+                </div>
+                <div class="project-img" onclick="openLightbox(2, 'hotel-sistema-images')">
+                    <img src="images/portfolio/hotel-sistema/reservas-del-dia.jpg" alt="Reservas del día con el estado de cada habitación y las acciones de checkout" width="1536" height="1024" loading="lazy" decoding="async">
+                    <div class="img-overlay">Reservas del día</div>
+                </div>
+                <div class="project-img" onclick="openLightbox(3, 'hotel-sistema-images')">
+                    <img src="images/portfolio/hotel-sistema/analytics.jpg" alt="Analytics con ingresos diarios, formas de pago y ocupación por habitación" width="1536" height="1024" loading="lazy" decoding="async">
+                    <div class="img-overlay">Analytics del hotel</div>
+            </div>
+            </div>
+
+            <div class="project-details">
+                <h3>Descripción del Proyecto</h3>
+                <p>El panel interno con el que el Complejo Santino maneja el día a día: qué habitación está libre, quién se va hoy, cuánto entró por reservas y cuánto por el restobar. Todo lo que antes se anotaba en papel o en una planilla suelta, en una sola pantalla y con el balance del día siempre a la vista.</p>
+
+                <h3>Características Principales</h3>
+                <ul>
+                    <li><strong>Panel ejecutivo:</strong> ingresos por reservas, ingresos del restobar, gastos operativos y balance del día al abrir el sistema</li>
+                    <li><strong>Reservas del día:</strong> las 15 habitaciones en una grilla, en verde las libres y en rojo las ocupadas con los datos del huésped</li>
+                    <li><strong>Check-out en un clic:</strong> con impresión de ticket y cancelación de reserva desde la misma tarjeta</li>
+                    <li><strong>Habitaciones y tarifas:</strong> capacidad, tipo estándar o confort y precio por noche, editables desde el sistema</li>
+                    <li><strong>Pedidos del restobar:</strong> consumos del restaurante y room service cargados a la habitación</li>
+                    <li><strong>Control de stock:</strong> inventario de bebidas y productos, con su propio tablero de estadísticas</li>
+                    <li><strong>Gastos y actividades:</strong> registro de gastos operativos y tareas internas del hotel</li>
+                    <li><strong>Analytics:</strong> ingresos diarios de los últimos 30 días, formas de pago y ocupación habitación por habitación, con exportación</li>
+                    <li><strong>Clientes:</strong> base de datos de huéspedes con su historial</li>
+                </ul>
+
+                <h3>Resultados Obtenidos</h3>
+                <ul>
                     <li>⚡ <strong>70% reducción</strong> en tiempo de gestión administrativa</li>
                     <li>💰 <strong>Mejora significativa</strong> en control de ingresos</li>
                     <li>📊 <strong>100% digitalización</strong> de procesos operativos</li>
-                    <li>😊 <strong>Mayor satisfacción</strong> del cliente con reservas online</li>
                 </ul>
-                
+
                 <h3>Proceso de Desarrollo</h3>
-                <p>El proyecto se desarrolló en fases iterativas: primero el sistema de gestión interno, luego el sitio web corporativo, y finalmente la integración completa del motor de reservas. Se implementó metodología ágil con entregas parciales para validación continua.</p>
-                
-                <p><strong>Duración:</strong> 4 meses | <strong>Equipo:</strong> 3 desarrolladores | <strong>Estado:</strong> En producción</p>
-            
-                
-                <a class="modal-cta" href="https://wa.me/5493765246043?text=%C2%A1Hola%21%20Vi%20%2ASistema%20Integral%20Hotelero%2A%20en%20la%20web%20de%20Kodo%20Labs%20y%20quer%C3%ADa%20consultar%20por%20un%20proyecto%20as%C3%AD." target="_blank" rel="noopener">
+                <p>Primero nos sentamos a mirar cómo trabajaba el hotel un fin de semana lleno. De ahí salieron las pantallas: primero habitaciones y reservas, después el restobar y el stock, y al final los reportes. Se fue entregando por partes, usándolo en el mostrador desde temprano.</p>
+
+                <p><strong>Cliente:</strong> Complejo Santino, Santo Tomé (Corrientes) | <strong>Estado:</strong> En producción</p>
+
+
+                <a class="modal-cta" href="https://wa.me/5493765246043?text=%C2%A1Hola%21%20Vi%20%2ASistema%20de%20Gesti%C3%B3n%20para%20Hotel%20Santino%2A%20en%20la%20web%20de%20Kodo%20Labs%20y%20quer%C3%ADa%20consultar%20por%20un%20proyecto%20as%C3%AD." target="_blank" rel="noopener">
                     <i class="fab fa-whatsapp" aria-hidden="true"></i>
                     Quiero algo así para mi negocio
                 </a>
@@ -1063,26 +1150,43 @@
   
   // Definir todas las imágenes estáticamente
   const imageGroups = {
-    'hotel-images': [
-      { 
-        src: 'images/portfolio/hotel/dashboard-principal.jpg', 
-        alt: 'Dashboard Principal - Panel de control hotelero', 
-        caption: 'Dashboard de Gestión' 
+    'hotel-web-images': [
+      {
+        src: 'images/portfolio/hotel/sitio-web.jpg',
+        alt: 'Portada del sitio del Complejo Santino con los accesos a disponibilidad y habitaciones',
+        caption: 'Portada del sitio'
       },
-      { 
-        src: 'images/portfolio/hotel/sistema-reservas.jpg', 
-        alt: 'Sistema de Reservas - gestión de reservas en hotel', 
-        caption: 'Sistema de Reservas' 
+      {
+        src: 'images/portfolio/hotel/servicios.jpg',
+        alt: 'Sección de servicios del hotel',
+        caption: 'Servicios del complejo'
       },
-      { 
-        src: 'images/portfolio/hotel/sitio-web.jpg', 
-        alt: 'Sitio Web Corporativo - Página web hotel', 
-        caption: 'Sitio Web Corporativo' 
+      {
+        src: 'images/portfolio/hotel/contacto.jpg',
+        alt: 'Sección de contacto con mapa y formulario de consulta',
+        caption: 'Contacto y ubicación'
+      }
+    ],
+    'hotel-sistema-images': [
+      {
+        src: 'images/portfolio/hotel-sistema/panel-ejecutivo.jpg',
+        alt: 'Panel ejecutivo con los ingresos del día y los accesos a cada módulo del sistema',
+        caption: 'Panel ejecutivo'
       },
-      { 
-        src: 'images/portfolio/hotel/motor-reservas.jpg', 
-        alt: 'Motor de Reservas Online - integración online', 
-        caption: 'Motor de Reservas Online' 
+      {
+        src: 'images/portfolio/hotel-sistema/habitaciones.jpg',
+        alt: 'Listado de las quince habitaciones con capacidad, tipo y precio por noche',
+        caption: 'Habitaciones y tarifas'
+      },
+      {
+        src: 'images/portfolio/hotel-sistema/reservas-del-dia.jpg',
+        alt: 'Reservas del día con el estado de cada habitación y las acciones de checkout',
+        caption: 'Reservas del día'
+      },
+      {
+        src: 'images/portfolio/hotel-sistema/analytics.jpg',
+        alt: 'Analytics con ingresos diarios, formas de pago y ocupación por habitación',
+        caption: 'Analytics del hotel'
       }
     ],
     'stock-images': [

@@ -4166,6 +4166,13 @@ footer::before,
     grid-row: span 2;
 }
 
+/* La primera tarjeta ocupa cuatro celdas, asi que con siete proyectos sobraban
+   dos huecos en la ultima fila. La septima se estira y la grilla cierra en
+   cuatro filas llenas. */
+.portfolio-item:nth-child(7):last-child {
+    grid-column: span 3;
+}
+
 /* ---------- la tarjeta ---------- */
 .portfolio-item {
     position: relative;
@@ -4318,6 +4325,9 @@ footer::before,
         grid-auto-rows: 230px;
     }
     .portfolio-item:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+    /* Con dos columnas los siete proyectos ya cierran solos, y dejar el span
+       de tres inventaba una tercera columna vacia. */
+    .portfolio-item:nth-child(7):last-child { grid-column: auto; }
 }
 
 @media (max-width: 640px) {

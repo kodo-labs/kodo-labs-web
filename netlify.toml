@@ -39,3 +39,11 @@
   for = "/images/*"
   [headers.values]
     Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
+
+# Paginas internas (solo por link directo): que ningun buscador las indexe y
+# que el navegador no se quede con una copia vieja.
+[[headers]]
+  for = "/interno/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive"
+    Cache-Control = "no-store"
